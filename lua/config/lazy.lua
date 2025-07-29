@@ -18,11 +18,15 @@ vim.opt.rtp:prepend(lazypath)
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.opt.clipboard = "unnamedplus"
-vim.keymap.set('n', 'z', 'u', { noremap = true, silent = true })      -- Undo with z
-vim.keymap.set('n', 'Z', '<C-r>', { noremap = true, silent = true })  -- Redo with Shift+z
+map('n', 'z', 'u', opts)      -- Undo with z
+map('n', 'Z', '<C-r>', opts)  -- Redo with Shift+z
+-- Barbar keybindings moved to barbar.lua plugin config
+-- vim.g.barbar_auto_setup = false -- disable auto-setup
 
 -- Setup lazy.nvim
 require("lazy").setup({

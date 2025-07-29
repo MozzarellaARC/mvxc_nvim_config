@@ -1,9 +1,10 @@
 require("config.lazy")
 require("oil").setup()
 require("mason").setup()
-require('mason-tool-installer').setup {
 
-  -- a list of all tools you want to ensure are installed upon
+  
+
+require('mason-tool-installer').setup {
   -- start
   ensure_installed = {
 

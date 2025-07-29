@@ -27,6 +27,7 @@ require("lazy").setup({
   spec = {
     -- Add your plugins here, or import them from other modules
     { import = "plugins" },
+    -- You can also import plugins from a specific file
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.

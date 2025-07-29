@@ -21,6 +21,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.opt.clipboard = "unnamedplus"
+vim.keymap.set('n', 'z', 'u', { noremap = true, silent = true })      -- Undo with z
+vim.keymap.set('n', 'Z', '<C-r>', { noremap = true, silent = true })  -- Redo with Shift+z
 
 -- Setup lazy.nvim
 require("lazy").setup({

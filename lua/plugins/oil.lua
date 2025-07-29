@@ -4,8 +4,11 @@ return {
   ---@type oil.SetupOpts
   opts = {},
   keys = {
-    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    { "-", "<CMD>Oil<CR>", desc = "Open parent directory" }
   },
+  config = function()
+    require('oil').setup()
+  end,
   -- Optional dependencies
   dependencies = { { "echasnovski/mini.icons", opts = {} } },
   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons

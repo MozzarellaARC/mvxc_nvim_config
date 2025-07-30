@@ -51,10 +51,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     
     if #temp_files > 0 then
       for _, file in ipairs(temp_files) do
-        local success = pcall(vim.fn.delete, file)
-        if success then
-          vim.notify("Cleaned up shada temp file: " .. vim.fn.fnamemodify(file, ":t"), vim.log.levels.INFO)
-        end
+        pcall(vim.fn.delete, file)
       end
     end
   end,
@@ -85,6 +82,25 @@ require("lazy").setup({
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "dragon" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+  -- automatically check for plugin updates (notifications disabled to prevent intrusive prompts)
+  checker = { 
+    enabled = true,
+    concurrency = nil, ---@type number? set to 1 to check for updates very slowly
+    notify = false,  -- Disable notifications that pause your buffer
+    frequency = 3600, -- Check only once per hour instead of constantly
+  },
+  change_detection = {
+    -- automatically check for config file changes and reload the ui
+    enabled = true,
+    notify = true, -- get a notification when changes are found
+  },
+  performance = {
+    cache = {
+      enabled = true,
+    },
+    reset_packpath = true, -- reset the package path to improve startup time
+    rtp = {
+      reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
+    },
+  }
 })

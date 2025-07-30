@@ -1,6 +1,8 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-local rmap = { noremap = false, silent = true }
+
+vim.keymap.set("n", "s", "<Plug>(nvim-surround-normal)", { noremap = true })
+
 
 ---General keybindings
 map('n', 'z', 'u', opts)  -- undo with z

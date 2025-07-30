@@ -23,7 +23,14 @@ return {
     -- C-k: Toggle signature help (if signature.enabled = true)
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    keymap = { preset = 'default' },
+    -- Options: 'default' (C-y to accept), 'super-tab' (Tab to accept), 'enter' (Enter to accept)
+    keymap = { 
+      preset = 'super-tab',  -- Use Tab to accept completions
+      -- You can also define custom keymaps:
+      ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      ['<C-e>'] = { 'hide' },
+      ['<CR>'] = { 'accept', 'fallback' },  -- Enter also accepts
+    },
 
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'

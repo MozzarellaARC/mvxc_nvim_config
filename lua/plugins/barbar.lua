@@ -21,7 +21,20 @@ return {
           if name == "" then
             return "[No Name]"
           end
-          return vim.fn.fnamemodify(name, ":t")
+          
+          -- Fix symlink/target path issue by using only the tail (filename)
+          -- This addresses the issue where barbar shows full target paths
+          local basename = vim.fn.fnamemodify(name, ":t")
+          
+          -- If basename is empty (for directories or special buffers), 
+          -- fall back to a more descriptive name
+          if basename == "" then
+            -- Handle both Windows and Unix path separators
+            local parts = vim.split(name, "[/\\]")
+            basename = parts[#parts] or "[Unknown]"
+          end
+          
+          return basename
         end,
 
         -- WARN: do not copy everything below into your config!

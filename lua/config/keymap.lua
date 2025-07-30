@@ -1,7 +1,9 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+local rmap = { noremap = false, silent = true }
 
 ---General keybindings
+map('n', 'z', 'u', opts)  -- undo with z
 map('n', 'Z', '<C-r>', opts)  -- Redo with Shift+z
 map('n', '<C-s>', ':w<CR>', opts) -- Save with Ctrl+s
 map('n', '<C-A-s>', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s

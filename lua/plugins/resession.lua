@@ -94,74 +94,70 @@ return {
     -- ========================================================================
     -- Save a timestamped session manually. This is useful for creating
     -- checkpoint saves before major changes or experiments.
-	
-    -- vim.keymap.set("n", "<leader>sw", function()
-    --   -- Fire SessionSavePre event for barbar compatibility
-    --   vim.api.nvim_exec_autocmds('User', {pattern = 'SessionSavePre'})
-    --   
-    --   -- Create a unique session name with timestamp
-    --   -- Format: manual_YYYYMMDD_HHMMSS (e.g., manual_20250730_143022)
-    --   local session_name = "manual_" .. os.date("%Y%m%d_%H%M%S")
-    --   print("Saving session: " .. session_name)
-    --   
-    --   -- Use pcall to catch and display any errors gracefully
-    --   local ok, err = pcall(resession.save, session_name)
-    --   if not ok then
-    --     print("Error saving session: " .. tostring(err))
-    --   else
-    --     print("Session saved successfully!")
-    --   end
-    -- end, { desc = "Save session manually with timestamp" })
+--     vim.keymap.set("n", "<leader>sw", function()
+--       -- Fire SessionSavePre event for barbar compatibility
+--       vim.api.nvim_exec_autocmds('User', {pattern = 'SessionSavePre'})
+--       
+--       -- Create a unique session name with timestamp
+--       -- Format: manual_YYYYMMDD_HHMMSS (e.g., manual_20250730_143022)
+--       local session_name = "manual_" .. os.date("%Y%m%d_%H%M%S")
+--       print("Saving session: " .. session_name)
+--       
+-- --      -- Use pcall to catch and display any errors gracefully
+--       local ok, err = pcall(resession.save, session_name)
+--       if not ok then
+--         print("Error saving session: " .. tostring(err))
+--       else
+--         print("Session saved successfully!")
+--       end
+--     end, { desc = "Save session manually with timestamp" })
 
     -- ========================================================================
     -- LOAD LAST SESSION (<leader>ss)
     -- ========================================================================
     -- Manually load the last saved session. Useful for switching back to
     -- your main workspace after working on something else.
-	
-    -- vim.keymap.set("n", "<leader>ss", function()
-    --   print("Loading last session...")
-    --   
-    --   -- Use pcall to handle errors gracefully
-    --   local ok, err = pcall(resession.load, "last", { silence_errors = true })
-    --   if not ok then
-    --     print("Error loading session: " .. tostring(err))
-    --   else
-    --     print("Session loaded successfully!")
-    --   end
-    -- end, { desc = "Load the last saved session" })
+--     vim.keymap.set("n", "<leader>ss", function()
+--       print("Loading last session...")
+--       
+-- --      -- Use pcall to handle errors gracefully
+--       local ok, err = pcall(resession.load, "last", { silence_errors = true })
+--       if not ok then
+--         print("Error loading session: " .. tostring(err))
+--       else
+--         print("Session loaded successfully!")
+--       end
+--     end, { desc = "Load the last saved session" })
 
     -- ========================================================================
     -- LIST SESSIONS (<leader>sl)
     -- ========================================================================
     -- Display all available sessions. Helpful for managing multiple workspaces.
-    vim.keymap.set("n", "<leader>sl", function()
-      print("Available sessions:")
-      
-      -- IMPORTANT: Use 'session' (singular) not 'sessions' (plural)!
-      -- This is resession's actual default directory structure.
-	  
-    --   local sessions_dir = vim.fn.stdpath('data') .. '/session'
-    --   
-    --   -- Find all .json files in the session directory
-    --   local files = vim.fn.glob(sessions_dir .. '/*.json', false, true)
-    --   
-    --   if #files == 0 then
-    --     print("  No sessions found")
-    --   else
-    --     -- Extract just the filename without extension for display
-    --     for _, file in ipairs(files) do
-    --       local name = vim.fn.fnamemodify(file, ':t:r') -- :t = tail, :r = remove extension
-    --       print("  " .. name)
-    --     end
-    --   end
-    -- end, { desc = "List all available sessions" })
+--     vim.keymap.set("n", "<leader>sl", function()
+--       print("Available sessions:")
+--       
+--       -- IMPORTANT: Use 'session' (singular) not 'sessions' (plural)!
+--       -- This is resession's actual default directory structure.
+--       local sessions_dir = vim.fn.stdpath('data') .. '/session'
+--       
+--       -- Find all .json files in the session directory
+--       local files = vim.fn.glob(sessions_dir .. '/*.json', false, true)
+--       
+--       if #files == 0 then
+--         print("  No sessions found")
+--       else
+-- --        -- Extract just the filename without extension for display
+--         for _, file in ipairs(files) do
+--           local name = vim.fn.fnamemodify(file, ':t:r') -- :t = tail, :r = remove extension
+--           print("  " .. name)
+--         end
+--       end
+--     end, { desc = "List all available sessions" })
 
     -- ========================================================================
     -- DELETE SESSION (<leader>sd)
     -- ========================================================================
     -- Delete a session with user confirmation. Helps clean up old sessions.
-	
 --     vim.keymap.set("n", "<leader>sd", function()
 --       -- Use vim.ui.input for a clean input prompt
 --       vim.ui.input({ prompt = "Delete session: " }, function(name)
@@ -176,8 +172,8 @@ return {
 --         end
 --       end)
 --     end, { desc = "Delete a session (with confirmation)" })
---   end,
--- }
+  end,
+}
 
 -- ============================================================================
 -- TROUBLESHOOTING GUIDE

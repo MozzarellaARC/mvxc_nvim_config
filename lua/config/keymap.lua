@@ -8,7 +8,7 @@ map('n', 'Z', '<C-r>', opts)  -- Redo with Shift+z
 map('n', '<C-s>', ':w<CR>', opts) -- Save with Ctrl+s
 map('n', '<C-A-s>', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s
 
-vim.keymap.set('n', '<C-w>', ':bd<CR>', { noremap = true, silent = true })
+map('n', '<M-w>', ':bd<CR>', opts)
 
 --- Fugitive keybindings
 map("n", "<leader>gs", ":Git<CR>", opts)
@@ -32,8 +32,8 @@ map('i', '<C-S-Left>', '<Nop>', opts)   -- Disable in insert mode
 map('i', '<C-S-Right>', '<Nop>', opts)  -- Disable in insert mode
 
 -- Now map to buffer navigation
-map('n', '<C-S-Left>', ':bprev<CR>', opts)
-map('n', '<C-S-Right>', ':bnext<CR>', opts)
+map('n', '<C-S-Left>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<C-S-Right>', '<Cmd>BufferNext<CR>', opts)
 
 --- Yazi keybindings
 map('n', '<space>f', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file

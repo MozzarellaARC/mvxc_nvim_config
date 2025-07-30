@@ -32,7 +32,7 @@ vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
 
 -- Status line and command line configuration
 vim.opt.laststatus = 3         -- Global statusline (single statusline for all windows)
-vim.opt.cmdheight = 1          -- Standard command line height (fixes character input bugs)
+vim.opt.cmdheight = 0          -- Standard command line height (fixes character input bugs)
 vim.opt.showmode = false       -- Don't show mode in command line since statusline shows it
 
 -- Session options for auto-session plugin
@@ -80,6 +80,7 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 require("lazy").setup({
   spec = {
     -- Add your plugins here, or import them from other modules
+    { import = "config.color-schemes" },
     { import = "plugins" },
     -- You can also import plugins from a specific file
   },

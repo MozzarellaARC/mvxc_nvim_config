@@ -6,16 +6,18 @@ return {
 			ensure_installed = {
 
 		-- you can pin a tool to a particular version
-		{ 'golangci-lint', version = 'v1.47.0' },
+		-- { 'golangci-lint', version = 'v1.47.0' },
 
 		-- you can turn off/on auto_update per tool
-		{ 'bash-language-server', auto_update = true },
+		-- { 'bash-language-server', auto_update = true },
 
 		-- you can do conditional installing
-		{ 'gopls', condition = function() return vim.fn.executable('go') == 1  end }, ---@diagnostic disable-line: undefined-global
+		-- { 'gopls', condition = function() return vim.fn.executable('go') == 1  end }, ---@diagnostic disable-line: undefined-global
+		
+		-- 'vim-language-server',
 		'lua-language-server',
 		'typescript-language-server',
-		-- 'vim-language-server',
+		
 		'eslint-lsp',
 		'stylua',
 		'clangd',

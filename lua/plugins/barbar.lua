@@ -11,23 +11,7 @@ return {
       -- …etc.
     },
     config = function()
-      -- Set up keybindings after barbar is loaded
-      local map = vim.api.nvim_set_keymap
-      local opts = { noremap = true, silent = true }
-      
-      -- Disable conflicting cursor movement keybindings
-      map('n', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left
-      map('n', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right
-      map('v', '<C-S-Left>', '<Nop>', opts)   -- Disable in visual mode too
-      map('v', '<C-S-Right>', '<Nop>', opts)  -- Disable in visual mode too
-      map('i', '<C-S-Left>', '<Nop>', opts)   -- Disable in insert mode
-      map('i', '<C-S-Right>', '<Nop>', opts)  -- Disable in insert mode
-      
-      -- Now map to buffer navigation
-      map('n', '<C-S-Left>', '<Cmd>BufferPrevious<CR>', opts)
-      map('n', '<C-S-Right>', '<Cmd>BufferNext<CR>', opts)
       vim.g.barbar_auto_setup = false -- disable auto-setup
-
       require'barbar'.setup {
         -- WARN: do not copy everything below into your config!
         --       It is just an example of what configuration options there are.

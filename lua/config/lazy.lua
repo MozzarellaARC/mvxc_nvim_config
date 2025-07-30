@@ -30,15 +30,11 @@ vim.opt.smartindent = true    -- Smart autoindenting
 vim.opt.list = true           -- Show some invisible characters
 vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
 
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+-- Clipboard
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.opt.clipboard = "unnamedplus"
-map('n', 'z', 'u', opts)      -- Undo with z
-map('n', 'Z', '<C-r>', opts)  -- Redo with Shift+z
-map('n', '<C-s>', ':w<CR>', opts) -- Save with Ctrl+s
-map('n', '<C-A-s>', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s
+
 -- Barbar keybindings moved to barbar.lua plugin config
 -- vim.g.barbar_auto_setup = false -- disable auto-setup
 

@@ -1,5 +1,7 @@
 return {
-    {'romgrk/barbar.nvim',
+    {
+    enabled = true,
+    'romgrk/barbar.nvim',
     dependencies = {
       'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
@@ -13,6 +15,15 @@ return {
     config = function()
       vim.g.barbar_auto_setup = false -- disable auto-setup
       require'barbar'.setup {
+
+        name_formatter = function(buf)
+          local name = vim.api.nvim_buf_get_name(buf)
+          if name == "" then
+            return "[No Name]"
+          end
+          return vim.fn.fnamemodify(name, ":t")
+        end,
+
         -- WARN: do not copy everything below into your config!
         --       It is just an example of what configuration options there are.
         --       The defaults are suitable for most people.
@@ -111,7 +122,7 @@ return {
         -- minimum_padding = 1,
 
         -- Sets the maximum buffer name length.
-        maximum_length = 5,
+        maximum_length = 30,
 
         -- Sets the minimum buffer name length.
         minimum_length = 1,

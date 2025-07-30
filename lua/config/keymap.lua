@@ -6,7 +6,7 @@ local rmap = { noremap = false, silent = true }
 map('n', 'z', 'u', opts)  -- undo with z
 map('n', 'Z', '<C-r>', opts)  -- Redo with Shift+z
 map('n', '<C-s>', ':w<CR>', opts) -- Save with Ctrl+s
-map('n', '<C-A-s>', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s
+map('n', '<C-M-s>', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s
 
 map('n', '<M-w>', ':bd<CR>', opts)
 

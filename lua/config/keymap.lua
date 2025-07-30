@@ -35,3 +35,34 @@ map('n', '<C-S-Right>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<space>f', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
 map('n', '<leader>cw', '<Cmd>Yazi cwd<CR>', opts)  -- Open yazi in working directory
 
+--- Buffer management
+-- Close all buffers except those visible in windows/tabs
+vim.api.nvim_create_user_command('BufCleanup', function()
+  local visible_buffers = {}
+  
+  -- Get all visible buffers from all tabs and windows
+  for _, tabpage in ipairs(vim.api.nvim_list_tabpages()) do
+    for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tabpage)) do
+      local buf = vim.api.nvim_win_get_buf(win)
+      visible_buffers[buf] = true
+    end
+  end
+  
+  -- Close all buffers that aren't visible
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf) and not visible_buffers[buf] then
+      local buf_type = vim.api.nvim_buf_get_option(buf, 'buftype')
+      local buf_name = vim.api.nvim_buf_get_name(buf)
+      -- Only close normal file buffers (not special buffers like terminals, etc.)
+      if buf_type == '' and buf_name ~= '' then
+        vim.api.nvim_buf_delete(buf, { force = false })
+      end
+    end
+  end
+  
+  print("Cleaned up hidden buffers")
+end, { desc = "Close all buffers not visible in any window" })
+
+-- Map :bd to our custom buffer cleanup command
+map('n', '<leader>bd', '<Cmd>BufCleanup<CR>', opts)  -- Clean up hidden buffers
+

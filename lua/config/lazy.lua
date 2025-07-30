@@ -25,6 +25,8 @@ vim.g.maplocalleader = "\\"
 vim.opt.clipboard = "unnamedplus"
 map('n', 'z', 'u', opts)      -- Undo with z
 map('n', 'Z', '<C-r>', opts)  -- Redo with Shift+z
+map('n', 'C-s', ':w<CR>', opts) -- Save with Ctrl+s
+map('n', 'C-A-s', ':bufdo w<CR>', opts) -- Save all buffers with Ctrl+Alt+s
 -- Barbar keybindings moved to barbar.lua plugin config
 -- vim.g.barbar_auto_setup = false -- disable auto-setup
 

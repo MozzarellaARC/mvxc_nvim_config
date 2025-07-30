@@ -30,10 +30,10 @@ vim.opt.smartindent = true    -- Smart autoindenting
 vim.opt.list = true           -- Show some invisible characters
 vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
 
--- Status line and command line configuration
-vim.opt.laststatus = 3         -- Global statusline (single statusline for all windows)
-vim.opt.cmdheight = 0          -- Standard command line height (fixes character input bugs)
-vim.opt.showmode = false       -- Don't show mode in command line since statusline shows it
+-- -- Status line and command line configuration
+-- vim.opt.laststatus = 3         -- Global statusline (single statusline for all windows)
+-- vim.opt.cmdheight = 0          -- Standard command line height (fixes character input bugs)
+-- vim.opt.showmode = false       -- Don't show mode in command line since statusline shows it
 
 -- Session options for auto-session plugin
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

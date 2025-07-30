@@ -18,6 +18,8 @@ map("n", "<leader>gb", ":Git blame<CR>", opts)
 map("n", "<leader>gh", ":GBrowse<CR>", opts)
 map("v", "<leader>gh", ":GBrowse<CR>", opts)
 
+-- test
+
 -- Set up keybindings after barbar is loaded
 -- Disable conflicting cursor movement keybindings
 map('n', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left

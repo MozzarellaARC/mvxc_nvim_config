@@ -28,3 +28,8 @@ map('i', '<C-S-Right>', '<Nop>', opts)  -- Disable in insert mode
 -- Now map to buffer navigation
 map('n', '<C-S-Left>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-S-Right>', '<Cmd>BufferNext<CR>', opts)
+
+--- Yazi keybindings
+map('n', '<space>f', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
+map('n', '<leader>cw', '<Cmd>Yazi cwd<CR>', opts)  -- Open yazi in working directory
+

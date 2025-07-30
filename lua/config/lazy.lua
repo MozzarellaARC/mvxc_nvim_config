@@ -18,6 +18,18 @@ vim.opt.rtp:prepend(lazypath)
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
+vim.opt.number = true        -- Show absolute line numbers
+vim.opt.relativenumber = false -- Show relative line numbers (optional)
+
+-- Indentation settings
+vim.opt.expandtab = false     -- Use tabs instead of spaces
+vim.opt.shiftwidth = 4        -- Size of an indent
+vim.opt.tabstop = 4           -- Number of spaces tabs count for
+vim.opt.softtabstop = 4       -- Number of spaces tabs count for in insert mode
+vim.opt.smartindent = true    -- Smart autoindenting
+vim.opt.list = true           -- Show some invisible characters
+vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
+
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "

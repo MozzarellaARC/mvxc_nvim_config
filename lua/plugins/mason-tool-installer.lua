@@ -14,10 +14,15 @@ return {
 		-- you can do conditional installing
 		{ 'gopls', condition = function() return vim.fn.executable('go') == 1  end }, ---@diagnostic disable-line: undefined-global
 		'lua-language-server',
+		'typescript-language-server',
 		-- 'vim-language-server',
+		'eslint-lsp',
 		'stylua',
 		'clangd',
-		'clang-format'
+		'clang-format',
+		'black',
+		'pyright',
+		'deno',
 		-- 'shellcheck',
 		-- 'editorconfig-checker',
 		-- 'gofumpt',

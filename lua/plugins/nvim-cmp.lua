@@ -121,6 +121,7 @@ return {
           scrollbar = false,
           col_offset = -3,
           side_padding = 0,
+          max_height = 10, -- Limit to 10 items visible at once
         },
         documentation = {
           border = "none",
@@ -135,23 +136,6 @@ return {
           hl_group = "CmpGhostText",
         },
       },
-    })
-    
-    -- Command line completions
-    cmp.setup.cmdline({ "/", "?" }, {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = "buffer" }
-      }
-    })
-    
-    cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        { name = "path" }
-      }, {
-        { name = "cmdline" }
-      })
     })
   end,
 }

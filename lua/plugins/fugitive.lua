@@ -9,7 +9,6 @@ return {
       { "<leader>gs", "<Cmd>Git<CR>", desc = "Git Status" },
     },
     dependencies = {
-      "tpope/vim-rhubarb", -- GitHub integration for fugitive
     },
     config = function()
     end,

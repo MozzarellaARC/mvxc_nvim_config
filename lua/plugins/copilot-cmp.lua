@@ -7,7 +7,6 @@ return {
     require("copilot_cmp").setup({
       -- Method for getting completions
       method = "getCompletionsCycling",
-      
       -- Format the completion item
       formatters = {
         label = require("copilot_cmp.format").format_label_text,

@@ -33,6 +33,7 @@
   "smear-cursor.nvim": { "branch": "main", "commit": "1a3df9af4ed017fafecd93c6837956914f269472" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "trouble.nvim": { "branch": "main", "commit": "85bedb7eb7fa331a2ccbecb9202d8abba64d37b3" },
+  "undotree": { "branch": "master", "commit": "28f2f54a34baff90ea6f4a735ef1813ad875c743" },
   "vim-fugitive": { "branch": "master", "commit": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4" },
   "yazi.nvim": { "branch": "main", "commit": "233466e7bc8345acf15a7ec7ae4b110207790a34" }
 }

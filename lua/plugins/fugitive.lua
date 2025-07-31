@@ -2,14 +2,16 @@ return {
   -- Git integration for Neovim with GitHub support
   {
     "tpope/vim-fugitive",
-    cmd = { "Git", "G", "Gdiffsplit", "Gread", "Gwrite", "Ggrep", "GMove", "GDelete", "GBrowse", "GRemove", "GRename", "Glgrep", "Gedit" },
+    -- cmd = { "Git", "G", "Gdiffsplit", "Gread", "Gwrite", "Ggrep", "GMove", "GDelete", "GBrowse", "GRemove", "GRename", "Glgrep", "Gedit" },
     ft = { "fugitive" },
+    keys = {
+      { "<leader>gd", "<Cmd>Gdiffsplit<CR>", desc = "Git diff split" },
+	  { "<leader>gs", "<Cmd>Git<CR>", desc = "Git Status" },
+    },
     dependencies = {
       "tpope/vim-rhubarb", -- GitHub integration for fugitive
     },
     config = function()
-      -- Optional: Add custom keymaps for fugitive
-      
     end,
   },
 }

@@ -28,4 +28,7 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
   end,
 })
 
+vim.keymap.set('n', '<leader>rr', [[:%s/\<old\>/new/g<Left><Left><Left><Left><Left>]], { desc = "Interactive global replace" })
+
+
 vim.o.updatetime = 100

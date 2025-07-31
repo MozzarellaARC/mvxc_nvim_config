@@ -68,5 +68,5 @@ map('n', '<C-S-Left>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-S-Right>', '<Cmd>BufferNext<CR>', opts)
 
 --- Yazi keybindings
-map('n', '<space>f', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
-map('n', '<leader>cw', '<Cmd>Yazi cwd<CR>', opts)  -- Open yazi in working directory
+map('n', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
+map('n', '<space>cw', '<Cmd>Yazi cwd<CR>', opts)  -- Open yazi in working directory

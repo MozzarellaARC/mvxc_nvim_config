@@ -18,7 +18,8 @@ map('n', 'Z', '<C-r>', opts)  -- Redo with Shift+z
 map('n', '<C-s>', ':w<CR>', opts) -- Save with Ctrl+s
 map('n', '<C-M-s>', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s
 
-map('n', '<S-q>', ':qa!<CR>', opts) -- Exit Neovim
+map('n', '<F4>', ':qa!<CR>', opts) -- Exit Neovim
+
 map('v', '<C-c>', 'y', opts)
 
 --- Fugitive keybindings

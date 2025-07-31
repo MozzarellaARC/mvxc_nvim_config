@@ -25,6 +25,7 @@ return {
 		'black',
 		'pyright',
 		'deno',
+		'powershell-editor-services'
 		-- 'shellcheck',
 		-- 'editorconfig-checker',
 		-- 'gofumpt',

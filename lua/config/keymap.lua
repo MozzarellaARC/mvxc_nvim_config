@@ -9,7 +9,9 @@ map('n', 'j', '<Nop>', opts)
 map('n', 'k', '<Nop>', opts)
 map('n', 'l', '<Nop>', opts)
 
-vim.keymap.set('n', '<C-w>', '<Nop>', {noremap = true})
+-- Override the entire C-w prefix
+vim.keymap.set('n', '<C-w>', ':bd<CR>', {noremap = true, nowait = true})
+
 
 ---General keybindings
 map('n', 'z', 'u', opts)  -- undo with z

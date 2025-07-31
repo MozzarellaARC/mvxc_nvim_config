@@ -28,6 +28,13 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     
+    -- Custom highlight for CMP windows
+    vim.api.nvim_set_hl(0, "CmpPmenu",       { bg = "#1e1e2e", fg = "#cdd6f4" })  -- Completion menu
+    vim.api.nvim_set_hl(0, "CmpSel",         { bg = "#45475a", fg = "#f5c2e7" })  -- Selected item
+    vim.api.nvim_set_hl(0, "CmpDoc",         { bg = "#1e1e2e", fg = "#cdd6f4" })  -- Documentation
+    vim.api.nvim_set_hl(0, "CmpGhostText",   { fg = "#6c7086", italic = true })   -- Ghost text
+
+
     -- Load snippets from friendly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()
     
@@ -108,12 +115,25 @@ return {
       },
       
       window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        completion = {
+          border = "none",
+          winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+          scrollbar = false,
+          col_offset = -3,
+          side_padding = 0,
+        },
+        documentation = {
+          border = "none",
+          winhighlight = "Normal:CmpDoc",
+          max_width = 80,
+          max_height = 20,
+        },
       },
       
       experimental = {
-        ghost_text = true,
+        ghost_text = {
+          hl_group = "CmpGhostText",
+        },
       },
     })
     

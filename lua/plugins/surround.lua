@@ -8,7 +8,7 @@ return {
         )
     end,
 	vim.keymap.set("n", "s", "<Plug>(nvim-surround-normal)iw", { noremap = true, silent = true}),
-	vim.keymap.set("v", "l", "<Plug>(nvim-surround-visual)", { noremap = true, silent = true})
+	vim.keymap.set("v", "s", "<Plug>(nvim-surround-visual)", { noremap = true, silent = true})
 }
 
 -- 3.1. Keymaps                                    *nvim-surround.config.keymaps*

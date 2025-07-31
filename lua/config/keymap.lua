@@ -10,8 +10,6 @@ map('n', 'k', '<Nop>', opts)
 map('n', 'l', '<Nop>', opts)
 map('n', 'Q', '<Nop>', opts)
 
-
-
 -- Override the entire C-w prefix with conditional behavior
 vim.keymap.set('n', '<C-w>', function()
   -- Get the number of windows in current tab

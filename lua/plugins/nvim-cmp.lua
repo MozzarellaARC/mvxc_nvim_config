@@ -126,7 +126,25 @@ return {
 
     -- Cmdline setup for `:` (commands and paths)
     cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
+      mapping = {
+        ["<Up>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            fallback()
+          end
+        end, { "c" }),
+
+        ["<Down>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            fallback()
+          end
+        end, { "c" }),
+
+        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+      },
       sources = cmp.config.sources({
         { name = "path", max_item_count = 5 },
       }, {
@@ -143,7 +161,25 @@ return {
 
     -- Cmdline setup for `/` and `?` (buffer search)
     cmp.setup.cmdline({ "/", "?" }, {
-      mapping = cmp.mapping.preset.cmdline(),
+      mapping = {
+        ["<Up>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            fallback()
+          end
+        end, { "c" }),
+
+        ["<Down>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            fallback()
+          end
+        end, { "c" }),
+
+        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+      },
       sources = {
         { name = "buffer", max_item_count = 5 },
       },

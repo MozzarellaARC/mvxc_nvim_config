@@ -11,7 +11,7 @@ map('n', 'l', '<Nop>', opts)
 map('n', 'Q', '<Nop>', opts)
 
 -- Override the entire C-w prefix
-vim.keymap.set('n', '<C-w>', ':bd<CR>', {noremap = true, nowait = true})
+vim.keymap.set('n', '<C-w>', ':close<CR>', {noremap = true, nowait = true})
 
 ---General keybindings
 map('n', 'z', 'u', opts)  -- undo with z
@@ -45,8 +45,8 @@ map('i', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in insert mod
 map('v', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in visual mode
 
 -- Now map to buffer navigation
-map('n', '<C-S-Left>', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<C-S-Right>', '<Cmd>BufferNext<CR>', opts)
+map('n', '<C-S-Left>', ':bprev<CR>', opts)
+map('n', '<C-S-Right>', ':bnext<CR>', opts)
 
 --- Yazi keybindings
 map('n', '<space>f', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file

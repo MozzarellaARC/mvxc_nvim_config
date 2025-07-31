@@ -1,6 +1,16 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set({ "n", "i", "v" }, "<C-.>", "<Nop>")
+vim.keymap.set({ "n", "i", "v" }, "<C-S-.>", "<Nop>")
+
+map('n', 'h', '<Nop>', opts)
+map('n', 'j', '<Nop>', opts)
+map('n', 'k', '<Nop>', opts)
+map('n', 'l', '<Nop>', opts)
+
+vim.keymap.set('n', '<C-w>', '<Nop>', {noremap = true})
+
 ---General keybindings
 map('n', 'z', 'u', opts)  -- undo with z
 map('n', 'Z', '<C-r>', opts)  -- Redo with Shift+z
@@ -9,6 +19,7 @@ map('n', '<C-M-s>', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s
 
 map('n', '<M-w>', ':bd<CR>', opts) -- Close current buffer
 map('n', '<S-q>', ':qa!<CR>', opts) -- Exit Neovim
+map('v', '<C-c>', 'y', opts)
 
 --- Fugitive keybindings
 map("n", "<leader>gs", ":Git<CR>", opts)

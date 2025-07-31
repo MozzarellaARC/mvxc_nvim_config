@@ -1,5 +1,2 @@
-vim.keymap.set({ "n", "i", "v" }, "<C-.>", "<Nop>")
-vim.keymap.set({ "n", "i", "v" }, "<C-S-.>", "<Nop>")
--- via.keymap.set({ "n", "i", "v" }, "s", "<Nop>")
 require("config.keymap")
 require("config.lazy")

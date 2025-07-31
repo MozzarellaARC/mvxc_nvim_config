@@ -38,6 +38,12 @@ return {
         end,
       },
       
+      -- Preselect first item like VSCode
+      preselect = cmp.PreselectMode.Item,
+      completion = {
+        completeopt = "menu,menuone,noinsert",
+      },
+      
       mapping = cmp.mapping.preset.insert({
         -- Navigate through completions
         ["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -56,10 +62,10 @@ return {
         -- Accept completion
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
         
-        -- Tab completion with snippet support
+        -- Tab completion like VSCode - accepts first item or expands snippet
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.select_next_item()
+            cmp.confirm({ select = true })
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           else

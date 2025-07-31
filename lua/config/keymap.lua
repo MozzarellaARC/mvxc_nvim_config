@@ -8,6 +8,7 @@ map('n', 'h', '<Nop>', opts)
 map('n', 'j', '<Nop>', opts)
 map('n', 'k', '<Nop>', opts)
 map('n', 'l', '<Nop>', opts)
+map('n', 'Q', '<Nop>', opts)
 
 -- Override the entire C-w prefix
 vim.keymap.set('n', '<C-w>', ':bd<CR>', {noremap = true, nowait = true})

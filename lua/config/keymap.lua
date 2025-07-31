@@ -14,13 +14,11 @@ map('n', 'Q', '<Nop>', opts)
 vim.keymap.set('n', '<C-w>', function()
   -- Get the number of windows in current tab
   local win_count = vim.fn.winnr('$')
-  
   -- Also check if current window is the last "normal" window
   -- (excluding special windows like quickfix, help, etc.)
   local current_win = vim.api.nvim_get_current_win()
   local buf = vim.api.nvim_win_get_buf(current_win)
   local buftype = vim.api.nvim_buf_get_option(buf, 'buftype')
-  
   if win_count > 1 and buftype == '' then
     -- Multiple windows and current is a normal buffer: close current window
     local ok, err = pcall(vim.cmd, 'close')

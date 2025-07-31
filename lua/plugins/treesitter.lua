@@ -10,7 +10,6 @@ return {
 
 	  -- Disable auto-install to prevent config change notifications
 	  auto_install = true,
-
 	  -- List of parsers to ignore installing (or "all")
 	  -- ignore_install = { "javascript" },
 

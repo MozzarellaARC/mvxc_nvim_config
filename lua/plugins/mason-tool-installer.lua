@@ -18,8 +18,8 @@ return {
 		'lua-language-server',
 		'typescript-language-server',
 		
-		'rust-analyzer (keywords: rust)'
-		'harper-ls'
+		'rust-analyzer (keywords: rust)',
+		'harper-ls',
 
 		'eslint-lsp',
 		'stylua',

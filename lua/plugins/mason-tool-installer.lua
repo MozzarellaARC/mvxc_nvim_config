@@ -15,7 +15,7 @@ return {
 		-- { 'gopls', condition = function() return vim.fn.executable('go') == 1  end }, ---@diagnostic disable-line: undefined-global
 		
 		-- 'vim-language-server',
-		'lua-language-server',
+		-- 'lua-language-server',
 		'typescript-language-server',
 		
 		'rust-analyzer (keywords: rust)',

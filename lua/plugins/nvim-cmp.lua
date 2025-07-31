@@ -43,9 +43,9 @@ return {
         end,
       },
 
-      preselect = cmp.PreselectMode.Item,
+      preselect = cmp.PreselectMode.None,
       completion = {
-        completeopt = "menu,menuone,noinsert",
+        completeopt = "menu,menuone,noinsert,noselect",
       },
 
       mapping = cmp.mapping.preset.insert({

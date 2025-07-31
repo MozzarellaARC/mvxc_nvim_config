@@ -31,7 +31,6 @@ return {
             diagnostics = {
               globals = {'vim'},
             },
-			alksdjaslkjd
             workspace = {
               library = vim.api.nvim_get_runtime_file("", true),
             },

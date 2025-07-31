@@ -1,9 +1,6 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "s", "<Plug>(nvim-surround-normal)", { noremap = true })
-
-
 ---General keybindings
 map('n', 'z', 'u', opts)  -- undo with z
 map('n', 'Z', '<C-r>', opts)  -- Redo with Shift+z
@@ -27,12 +24,12 @@ map("v", "<leader>gh", ":GBrowse<CR>", opts)
 
 -- Set up keybindings after barbar is loaded
 -- Disable conflicting cursor movement keybindings
-map('n', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left
-map('n', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right
-map('v', '<C-S-Left>', '<Nop>', opts)   -- Disable in visual mode too
-map('v', '<C-S-Right>', '<Nop>', opts)  -- Disable in visual mode too
-map('i', '<C-S-Left>', '<Nop>', opts)   -- Disable in insert mode
-map('i', '<C-S-Right>', '<Nop>', opts)  -- Disable in insert mode
+map('n', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left in normal mode
+map('i', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left in insert mode
+map('v', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left in visual mode
+map('n', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in normal mode
+map('i', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in insert mode
+map('v', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in visual mode
 
 -- Now map to buffer navigation
 map('n', '<C-S-Left>', '<Cmd>BufferPrevious<CR>', opts)

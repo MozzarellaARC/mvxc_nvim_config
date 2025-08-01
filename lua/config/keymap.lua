@@ -1,11 +1,14 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- Enable extended key protocol for better terminal key recognition
+vim.opt.timeout = true
+vim.opt.timeoutlen = 300
+
 
 -- Disable default keybindings
 map({ 'n', 'i', 'v' }, '<C-.>', '<Nop>')
 map({ 'n', 'i', 'v' }, '<C-S-.>', '<Nop>')
-map({ 'n', 'i', 'v' }, '<C-r>', '<Nop>')
 map({ 'n', 'i', 'v' }, '<C-w>', '<Nop>')
 map({'n', 'v'}, 'h', '<Nop>', opts)
 map({'n', 'v'}, 'j', '<Nop>', opts)
@@ -13,15 +16,26 @@ map({'n', 'v'}, 'k', '<Nop>', opts)
 map({'n', 'v'}, 'l', '<Nop>', opts)
 map({'n', 'v'}, 'Q', '<Nop>', opts)
 
+
+-- This to PowerShell Settings
+--    {
+--             "command": 
+--             {
+--                 "action": "sendInput",
+--                 "input": "\u001b[90;5u"
+--             },
+--             "id": "User.sendInput.D77F01E1"
+--         },
+
+-- aa aa aa  aa aa  aa aa aa  aa
 ---General keybindings
-map('n', 'z', 'u', opts)  -- undo with z
-map('n', 'Z', '<C-r>', opts)  -- Redo with Shift+z
+map('n', '<C-z>', 'u', opts)  -- undo with z
+map('n', '<C-S-z>', '<C-r>', opts)  -- Redo with Shift+z
+
 map('n', '<C-s>', ':w<CR>', opts) -- Save with Ctrl+s
 map('n', '<C-M-s>', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s
-
 map('n', '<F4>', ':qa!<CR>', opts) -- Exit Neovim
-
-map('v', '<C-c>', 'y', opts)
+map('v', '<C-c>', 'y', opts) -- Copy selection with Ctrl+c
 
 --- Fugitive keybindings
 map("n", "<leader>gs", ":Git<CR>", opts)

@@ -57,12 +57,12 @@ return {
       
       -- Remove borders by making border highlights transparent
       vim.cmd([[
-        hi NotifyERRORBorder guifg=NONE guibg=NONE
-        hi NotifyWARNBorder guifg=NONE guibg=NONE  
-        hi NotifyINFOBorder guifg=NONE guibg=NONE
-        hi NotifyDEBUGBorder guifg=NONE guibg=NONE
-        hi NotifyTRACEBorder guifg=NONE guibg=NONE
-        hi NotifyBackground guibg=NONE
+        hi NotifyERRORBorder guifg=#1f1f28 guibg=#1f1f28
+        hi NotifyWARNBorder guifg=#1f1f28 guibg=#1f1f28  
+        hi NotifyINFOBorder guifg=#1f1f28 guibg=#1f1f28
+        hi NotifyDEBUGBorder guifg=#1f1f28 guibg=#1f1f28
+        hi NotifyTRACEBorder guifg=#1f1f28 guibg=#1f1f28
+        hi NotifyBackground guibg=#1f1f28
       ]])
     end,
   }

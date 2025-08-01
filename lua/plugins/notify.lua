@@ -4,6 +4,19 @@ return {
     config = function()
       local notify = require("notify")
       
+      -- Icon configuration - customize these to your preference
+      local icons = {
+        save = "💾",
+        directory = "📁",
+        rename = "✏️",
+        create = "📄",
+        delete = "🗑️",
+        copy = "📋",
+        move = "🚚",
+        success = "✅",
+        error = "❌",
+      }
+      
       -- Set notify as the default notification handler
       vim.notify = notify
       
@@ -35,15 +48,6 @@ return {
         -- Minimum notification level to show
         level = vim.log.levels.INFO,
         
-        -- Icons for different levels (optional, will use defaults if not set)
-        -- icons = {
-        --   ERROR = "✗",
-        --   WARN = "⚠",
-        --   INFO = "ℹ",
-        --   DEBUG = "🐛",
-        --   TRACE = "✎",
-        -- },
-        
         -- Animation fps
         fps = 30,
         
@@ -73,7 +77,7 @@ return {
         callback = function()
           local filename = vim.fn.expand("%:t")
           if filename ~= "" then
-            vim.notify("💾 Saved: " .. filename, vim.log.levels.INFO, {
+            vim.notify(" Saved: " .. filename, vim.log.levels.INFO, {
               title = "File Operation",
               timeout = 1500,
             })
@@ -87,7 +91,7 @@ return {
         callback = function()
           local cwd = vim.fn.getcwd()
           local dir_name = vim.fn.fnamemodify(cwd, ":t")
-          vim.notify("📁 Changed to: " .. dir_name, vim.log.levels.INFO, {
+          vim.notify(" Changed to: " .. dir_name, vim.log.levels.INFO, {
             title = "Directory Change",
             timeout = 2000,
           })
@@ -100,7 +104,7 @@ return {
         callback = function()
           local filename = vim.fn.expand("%:t")
           if filename ~= "" then
-            vim.notify("✏️ Renamed to: " .. filename, vim.log.levels.INFO, {
+            vim.notify(" Renamed to: " .. filename, vim.log.levels.INFO, {
               title = "File Operation",
               timeout = 2000,
             })
@@ -114,7 +118,7 @@ return {
         callback = function()
           local filename = vim.fn.expand("%:t")
           if filename ~= "" then
-            vim.notify("📄 Created: " .. filename, vim.log.levels.INFO, {
+            vim.notify(" Created: " .. filename, vim.log.levels.INFO, {
               title = "File Operation",
               timeout = 2000,
             })
@@ -128,7 +132,7 @@ return {
         callback = function()
           local filename = vim.fn.expand("<afile>:t")
           if filename ~= "" and vim.fn.filereadable(vim.fn.expand("<afile>")) == 0 then
-            vim.notify("🗑️ Deleted: " .. filename, vim.log.levels.WARN, {
+            vim.notify(" Deleted: " .. filename, vim.log.levels.WARN, {
               title = "File Operation",
               timeout = 2000,
             })
@@ -142,7 +146,7 @@ return {
         file_copied = function(source, dest)
           local source_name = vim.fn.fnamemodify(source, ":t")
           local dest_name = vim.fn.fnamemodify(dest, ":t")
-          vim.notify("📋 Copied: " .. source_name .. " → " .. dest_name, vim.log.levels.INFO, {
+          vim.notify(" Copied: " .. source_name .. " → " .. dest_name, vim.log.levels.INFO, {
             title = "File Operation",
             timeout = 2500,
           })
@@ -152,7 +156,7 @@ return {
         file_moved = function(source, dest)
           local source_name = vim.fn.fnamemodify(source, ":t")
           local dest_name = vim.fn.fnamemodify(dest, ":t")
-          vim.notify("🚚 Moved: " .. source_name .. " → " .. dest_name, vim.log.levels.INFO, {
+          vim.notify(" Moved: " .. source_name .. " → " .. dest_name, vim.log.levels.INFO, {
             title = "File Operation",
             timeout = 2500,
           })
@@ -160,7 +164,7 @@ return {
         
         -- Function to notify successful operations
         success = function(message)
-          vim.notify("✅ " .. message, vim.log.levels.INFO, {
+          vim.notify(message, vim.log.levels.INFO, {
             title = "Success",
             timeout = 2000,
           })
@@ -168,7 +172,7 @@ return {
         
         -- Function to notify errors
         error = function(message)
-          vim.notify("❌ " .. message, vim.log.levels.ERROR, {
+          vim.notify(message, vim.log.levels.ERROR, {
             title = "Error",
             timeout = 3000,
           })

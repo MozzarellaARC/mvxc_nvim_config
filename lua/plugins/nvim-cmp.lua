@@ -7,17 +7,11 @@ return {
 	"L3MON4D3/LuaSnip",
 	-- follow latest release.
 	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- install jsregexp (optional!).
-	build = "make install_jsregexp",
+	-- Note: jsregexp build disabled due to Windows file locking issues
+	-- The library will work fine without jsregexp for most use cases
 	config = function()
 		-- Load friendly-snippets
 		require("luasnip.loaders.from_vscode").lazy_load()
-		
-		-- Try to load jsregexp, but don't error if it fails
-		local ok, _ = pcall(require, "luasnip-jsregexp")
-		if not ok then
-			vim.notify("jsregexp not available - some snippet features may be limited", vim.log.levels.WARN)
-		end
 	end,
 	},
     "saadparwaiz1/cmp_luasnip",

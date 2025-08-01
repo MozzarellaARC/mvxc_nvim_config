@@ -2,7 +2,7 @@ local map = vim.keymap.set
 
 -- Enable extended key protocol for better terminal key recognition
 -- vim.opt.timeout = true
--- vim.opt.timeoutlen = 300
+-- vim.opt.timeoutlen = 100
 
 -- Disable default keybindings
 map({ 'n', 'i', 'v' }, '<C-r>', '<Nop>')
@@ -128,12 +128,26 @@ map('v', '<F3>', '<cmd>Trouble diagnostics toggle<cr>')
 
 -- Override the entire C-w prefix with conditional behavior
 map('n', '<C-w>', function()
+  -- Check if we're in a Diffview buffer first
+  local current_win = vim.api.nvim_get_current_win()
+  local buf = vim.api.nvim_win_get_buf(current_win)
+  local bufname = vim.api.nvim_buf_get_name(buf)
+  local filetype = vim.bo[buf].filetype
+  
+  -- Check for Diffview buffers (common patterns used by diffview.nvim)
+  if filetype == 'DiffviewFiles' or 
+     filetype == 'DiffviewFileHistory' or
+     string.match(bufname, 'diffview://') or
+     string.match(bufname, 'DiffviewFilePanel') then
+    -- We're in a Diffview buffer, close Diffview
+    vim.cmd('DiffviewClose')
+    return
+  end
+  
   -- Get the number of windows in current tab
   local win_count = vim.fn.winnr('$')
   -- Also check if current window is the last "normal" window
   -- (excluding special windows like quickfix, help, etc.)
-  local current_win = vim.api.nvim_get_current_win()
-  local buf = vim.api.nvim_win_get_buf(current_win)
   local buftype = vim.bo[buf].buftype
   if win_count > 1 and buftype == '' then
     -- Multiple windows and current is a normal buffer: close current window

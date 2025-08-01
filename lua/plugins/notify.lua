@@ -22,7 +22,7 @@ return {
         max_height = 10,
         
         -- Render style: "default", "minimal", "simple", "compact"
-        render = "minimal",
+        render = "compact",
         
         -- Background color (hex) - you can change this to match your theme
         -- background_colour = "#1f1f28",

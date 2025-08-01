@@ -45,8 +45,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.opt.clipboard = "unnamedplus"
 
--- Barbar keybindings moved to barbar.lua plugin config
--- vim.g.barbar_auto_setup = false -- disable auto-setup
+-- Cursor configuration - enable blinking
+vim.opt.guicursor =
+	"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- Auto-cleanup shada temporary files to prevent write errors
 vim.api.nvim_create_autocmd("VimEnter", {

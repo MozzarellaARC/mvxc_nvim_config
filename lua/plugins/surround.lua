@@ -5,7 +5,7 @@ return {
 	config = function()
 		require("nvim-surround").setup()
 	end,
-    vim.keymap.set("n", "s", "<Plug>(nvim-surround-normal)iw")
+    vim.keymap.set("n", "s", "<Plug>(nvim-surround-normal)iw"),
     vim.keymap.set("v", "s", "<Plug>(nvim-surround-visual)")
 }
 

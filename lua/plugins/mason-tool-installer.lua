@@ -50,6 +50,10 @@ return {
 	-- Default: false
 	auto_update = false,
 
+
+-- I dont know what the hell is going ooon
+
+
 	-- automatically install / update on startup. If set to false nothing
 	-- will happen on startup. You can use :MasonToolsInstall or
 	-- :MasonToolsUpdate to install tools and check for updates.

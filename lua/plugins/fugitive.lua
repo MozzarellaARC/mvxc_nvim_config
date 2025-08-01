@@ -17,15 +17,13 @@ return {
             vim.notify("Committing with message: '" .. commit_msg .. "'", vim.log.levels.INFO)
           end
           
-
-		  -test 4
-          -- Add all files
-          vim.cmd("Git add .")
+          -- Add all files silently
+          vim.cmd("silent! Git add .")
           vim.notify("Files staged for commit", vim.log.levels.INFO)
           
-          -- Commit with message
+          -- Commit with message silently
           local success, result = pcall(function()
-            vim.cmd("Git commit -m '" .. commit_msg .. "'")
+            vim.cmd("silent! Git commit -m '" .. commit_msg .. "'")
           end)
           
           if success then
@@ -37,7 +35,7 @@ return {
       { "<leader>gp", function()
           vim.notify("Pushing to remote...", vim.log.levels.INFO)
           local success, result = pcall(function()
-            vim.cmd("Git push")
+            vim.cmd("silent! Git push")
           end)
           
           if success then
@@ -53,13 +51,13 @@ return {
           
           vim.notify("Quick committing with timestamp...", vim.log.levels.INFO)
           
-          -- Add all files
-          vim.cmd("Git add .")
+          -- Add all files silently
+          vim.cmd("silent! Git add .")
           vim.notify("Files staged for commit", vim.log.levels.INFO)
           
-          -- Commit with timestamp message
+          -- Commit with timestamp message silently
           local success, result = pcall(function()
-            vim.cmd("Git commit -m '" .. commit_msg .. "'")
+            vim.cmd("silent! Git commit -m '" .. commit_msg .. "'")
           end)
           
           if success then

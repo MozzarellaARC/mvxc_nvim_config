@@ -28,14 +28,14 @@ return {
         -- Timeout in milliseconds
         timeout = 3000,
         
-        -- Max width of notification window
-        max_width = 50,
+        -- Max width of notification window (increased for longer messages)
+        max_width = 80,
         
-        -- Max height of notification window  
-        max_height = 10,
+        -- Max height of notification window (increased to allow wrapping)
+        max_height = 20,
         
         -- Render style: "default", "minimal", "simple", "compact"
-        render = "compact",
+        render = "default",
         
         -- Background color (hex) - you can change this to match your theme
         -- background_colour = "#1f1f28",

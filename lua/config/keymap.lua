@@ -39,7 +39,7 @@ map({'n', 'v'}, 'Q', '<Nop>', opts)
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
-aaa
+
 ---General keybindings
 map('n', '<C-z>', 'u', opts)  -- undo with z
 map('n', '<C-S-z>', '<C-r>', opts)  -- Redo with Shift+z
@@ -60,8 +60,7 @@ map("n", "<leader>gb", ":Git blame<CR>", opts)
 map("n", "<leader>gh", ":GBrowse<CR>", opts)
 map("v", "<leader>gh", ":GBrowse<CR>", opts)
 
--- Set up keybindings after barbar is loaded
--- Disable conflicting cursor movement keybindings
+-- Barbar keybindings
 map('n', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left in normal mode
 map('i', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left in insert mode
 map('v', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left in visual mode

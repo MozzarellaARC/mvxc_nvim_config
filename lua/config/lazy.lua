@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	if vim.v.shell_error ~= 0 then
 		vim.api.nvim_echo({
 			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out,                            "WarningMsg" },
+			{ out, "WarningMsg" },
 			{ "\nPress any key to exit..." },
 		}, true, {})
 		vim.fn.getchar()
@@ -19,9 +19,26 @@ vim.opt.rtp:prepend(lazypath)
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 
+vim.opt.tabstop = 4 -- How many columns a tab counts for
+vim.opt.softtabstop = 4 -- How many spaces a tab feels like in insert mode
+vim.opt.shiftwidth = 4 -- How many spaces to use for each step of (auto)indent
+vim.opt.expandtab = true -- Use spaces instead of tabs
+
+-- textwidth=0
+-- formatoptions=jcroql
+-- indentexpr=GetLuaIndent()
+
+vim.opt.textwidth = 0
+vim.opt.formatoptions = "jcroql"
+vim.opt.indentexpr = "GetLuaIndent()"
+-- Disable automatic text wrapping
+-- Set format options for text formatting
+-- Use custom indent expression for Lua files
+
 -- Show absolute line numbers
 vim.opt.number = true
 
+-- Cache optimization
 vim.o.swapfile = false
 vim.opt.autoread = true
 
@@ -93,6 +110,6 @@ require("lazy").setup({
 	performance = {
 		cache = {
 			enabled = true,
-		}
-	}
+		},
+	},
 })

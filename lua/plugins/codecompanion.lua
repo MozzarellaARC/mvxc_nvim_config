@@ -19,10 +19,11 @@ return {
 		{
 			"MeanderingProgrammer/render-markdown.nvim",
 			ft = { "markdown", "codecompanion" },
+			lazy = true,
 		},
 		{
 			"OXY2DEV/markview.nvim",
-			lazy = false,
+			lazy = true,
 			opts = {
 				preview = {
 					filetypes = { "markdown", "codecompanion" },
@@ -32,6 +33,7 @@ return {
 		},
 		{
 			"echasnovski/mini.diff",
+			lazy = true,
 			config = function()
 				local diff = require("mini.diff")
 				diff.setup({
@@ -42,6 +44,7 @@ return {
 		},
 		{
 			"HakonHarnes/img-clip.nvim",
+			lazy = true,
 			opts = {
 				filetypes = {
 					codecompanion = {

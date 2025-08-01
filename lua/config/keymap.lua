@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local xmap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- -- Enable extended key protocol for better terminal key recognition
@@ -12,6 +13,8 @@ map({'n', 'v'}, 'j', '<Nop>', opts)
 map({'n', 'v'}, 'k', '<Nop>', opts)
 map({'n', 'v'}, 'l', '<Nop>', opts)
 map({'n', 'v'}, 'Q', '<Nop>', opts)
+
+
 
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
@@ -38,12 +41,12 @@ map({'n', 'v'}, 'Q', '<Nop>', opts)
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 
 ---General keybindings
-map('n', 'z', 'u', opts)  -- undo with z
-map('n', '<C-S-z>', '<C-r>', opts)  -- Redo with Shift+z
+xmap('n', 'z', 'u', opts)  -- undo with z
+xmap('n', '<C-S-z>', '<C-r>', opts)  -- Redo with Shift+z
 
-map('n', '<C-s>', ':w<CR>', {noremap = true}) -- Save with Ctrl+s
-map('i', '<C-s>', '<Esc>:w<CR>', {noremap = true}) -- Save with Ctrl+s
-map('v', '<C-s>', '<Esc>:w<CR>', {noremap = true}) -- Save with Ctrl+s
+xmap('n', '<C-s>', ':w<CR>', {noremap = true, nowait = true}) -- Save with Ctrl+s
+xmap('i', '<C-s>', '<Esc>:w<CR>', {noremap = true, nowait = true}) -- Save with Ctrl+s
+xmap('v', '<C-s>', '<Esc>:w<CR>', {noremap = true, nowait = true}) -- Save with Ctrl+s
 -- map('n', '<C-S>s', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s If this is turned on, it will gives delays to the Ctrl+s keybinding
 
 map('n', '<F4>', ':qa!<CR>', opts) -- Exit Neovim
@@ -91,9 +94,9 @@ map('v', '<C-,>', '<gv', { noremap = true, silent = true })
 map('v', '<C-.>', '>gv', { noremap = true, silent = true })
 
 -- Commentation keybindings
-map('n', '<A-/>', 'gcc', { noremap = false, silent = true })
+map('n', '<A-/>', 'gcc', { noremap = true, silent = true })
 
-map('v', '<A-/>', 'gcgv', { noremap = false, silent = true })
+map('v', '<A-/>', 'gcgv', { noremap = true, silent = true })
 
 map('i', '<A-/>', '<Esc>gcc<CR>i', { noremap = false, silent = true })
 

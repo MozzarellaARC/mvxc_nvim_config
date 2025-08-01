@@ -29,7 +29,7 @@ return {
     local luasnip = require("luasnip")
 
     -- Custom highlight for CMP windows
-    vim.api.nvim_set_hl(0, "CmpPmenu",       { bg = "#1e1e2e", fg = "#cdd6f4" })
+    vim.api.nvim_set_hl(0, "CmpPmenu",       { bg = "#5A5A75", fg = "#cdd6f4" })
     vim.api.nvim_set_hl(0, "CmpSel",         { bg = "#45475a", fg = "#f5c2e7" })
     vim.api.nvim_set_hl(0, "CmpDoc",         { bg = "#1e1e2e", fg = "#cdd6f4" })
     vim.api.nvim_set_hl(0, "CmpGhostText",   { fg = "#6c7086", italic = true })

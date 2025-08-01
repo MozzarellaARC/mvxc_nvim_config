@@ -9,7 +9,6 @@ return {
 
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-      
       -- Common on_attach function for all LSP servers
       local on_attach = function(client, bufnr)
         -- Enable completion triggered by <c-x><c-o>

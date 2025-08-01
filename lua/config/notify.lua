@@ -8,16 +8,16 @@
 local M = {}
 
 -- Icons for different notification types
-M.icons = {
-  ERROR = "✗",
-  WARN = "⚠",
-  INFO = "ℹ",
-  DEBUG = "🐛",
-  SUCCESS = "✓",
-  GIT_SUCCESS = "🔥",
-  GIT_ERROR = "❌",
-  GIT_INFO = "📝",
-}
+-- M.icons = {
+--   ERROR = "✗",
+--   WARN = "⚠",
+--   INFO = "ℹ",
+--   DEBUG = "🐛",
+--   SUCCESS = "✓",
+--   GIT_SUCCESS = "🔥",
+--   GIT_ERROR = "❌",
+--   GIT_INFO = "📝",
+-- }
 
 -- Notification levels
 M.levels = {
@@ -55,31 +55,31 @@ function M.notify(message, level, opts)
 end
 
 function M.success(message, opts)
-  M.notify(M.SUCCESS .. " " .. message, M.levels.INFO, opts)
+  M.notify(message, M.levels.INFO, opts)
 end
 
 function M.error(message, opts)
-  M.notify(M.ERROR .. " " .. message, M.levels.ERROR, opts)
+  M.notify(message, M.levels.ERROR, opts)
 end
 
 function M.warn(message, opts)
-  M.notify(M.WARN .. " " .. message, M.levels.WARN, opts)
+  M.notify( message, M.levels.WARN, opts)
 end
 
 function M.info(message, opts)
-  M.notify(M.INFO .. " " .. message, M.levels.INFO, opts)
+  M.notify(message, M.levels.INFO, opts)
 end
 
 -- Git-specific notifications
 M.git = {
   success = function(message, opts)
-    M.notify(M.GIT_SUCCESS .. " " .. message, M.levels.INFO, opts)
+    M.notify(message, M.levels.INFO, opts)
   end,
   error = function(message, opts)
-    M.notify(M.GIT_ERROR .. " " .. message, M.levels.ERROR, opts)
+    M.notify(message, M.levels.ERROR, opts)
   end,
   info = function(message, opts)
-    M.notify(M.GIT_INFO .. " " .. message, M.levels.INFO, opts)
+    M.notify(message, M.levels.INFO, opts)
   end,
 }
 

@@ -4,6 +4,7 @@ local opts = { noremap = true, silent = true }
 map({ 'n', 'i', 'v' }, '<C-.>', '<Nop>')
 map({ 'n', 'i', 'v' }, '<C-S-.>', '<Nop>')
 map({ 'n', 'i', 'v' }, '<C-r>', '<Nop>')
+map({ 'n', 'i', 'v' }, '<C-w>', '<Nop>')
 map({'n', 'v'}, 'h', '<Nop>', opts)
 map({'n', 'v'}, 'j', '<Nop>', opts)
 map({'n', 'v'}, 'k', '<Nop>', opts)

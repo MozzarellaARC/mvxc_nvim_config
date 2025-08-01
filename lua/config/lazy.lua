@@ -28,13 +28,6 @@ vim.opt.expandtab = true -- Use spaces instead of tabs
 -- formatoptions=jcroql
 -- indentexpr=GetLuaIndent()
 
-vim.opt.textwidth = 0
-vim.opt.formatoptions = "jcroql"
-vim.opt.indentexpr = "GetLuaIndent()"
--- Disable automatic text wrapping
--- Set format options for text formatting
--- Use custom indent expression for Lua files
-
 -- Show absolute line numbers
 vim.opt.number = true
 

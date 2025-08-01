@@ -35,9 +35,6 @@ vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
 -- vim.opt.cmdheight = 0          -- Standard command line height (fixes character input bugs)
 -- vim.opt.showmode = false       -- Don't show mode in command line since statusline shows it
 
--- Session options for auto-session plugin
--- vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-
 -- Clipboard
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"

@@ -17,6 +17,8 @@ return {
             vim.notify("Committing with message: '" .. commit_msg .. "'", vim.log.levels.INFO)
           end
           
+
+		  -test 4
           -- Add all files
           vim.cmd("Git add .")
           vim.notify("Files staged for commit", vim.log.levels.INFO)

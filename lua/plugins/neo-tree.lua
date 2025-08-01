@@ -26,41 +26,49 @@ return {
         filesystem = {
           follow_current_file = { enabled = true },
           use_libuv_file_watcher = true,
+          hijack_netrw_behavior = "open_current", -- Enable single click behavior
         },
         window = {
           position = "left",
           width = 30,
+          mapping_options = {
+            noremap = true,
+            nowait = true,
+          },
+          mappings = {
+            ["<cr>"] = "open",
+            ["<2-LeftMouse>"] = "open", -- Double click still works
+            ["<LeftRelease>"] = "open", -- Single click to open files
+          },
         },
         default_component_configs = {
           indent = {
             with_expanders = true,
-            expander_collapsed = "",
-            expander_expanded = "",
+            expander_collapsed = "",
+            expander_expanded = "",
           },
           icon = {
-            folder_closed = "",
-            folder_open = "",
+            folder_closed = "",
+            folder_open = "",
             folder_empty = "󰜌",
             default = "󰈙",
           },
           git_status = {
             symbols = {
               added     = "✚",
-              modified  = "",
+              modified  = "",
               deleted   = "✖",
               renamed   = "󰁕",
-              untracked = "",
-              ignored   = "",
+              untracked = "",
+              ignored   = "",
               unstaged  = "󰄱",
-              staged    = "",
-              conflict  = "",
+              staged    = "",
+              conflict  = "",
             },
           },
         },
       })
-
       vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Toggle Neotree" })
     end,
   }
 }
-

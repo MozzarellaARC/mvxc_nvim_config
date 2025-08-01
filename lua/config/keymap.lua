@@ -64,8 +64,11 @@ map('i', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in insert mod
 map('v', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in visual mode
 
 -- Now map to buffer navigation
-map('n', '<C-S-Left>', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<C-S-Right>', '<Cmd>BufferNext<CR>', opts)
+-- map('n', '<C-S-Left>', '<Cmd>BufferPrevious<CR>', opts)
+-- map('n', '<C-S-Right>', '<Cmd>BufferNext<CR>', opts)
+
+-- map('n', '<C-S-Left>', '<Cmd>bpref<CR>', opts)
+-- map('n', '<C-S-Right>', '<Cmd>bnext<CR>', opts)
 
 --- Yazi keybindings
 map('n', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file

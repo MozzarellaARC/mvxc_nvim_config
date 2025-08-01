@@ -9,17 +9,29 @@ return {
       { "<leader>gd", ":vert Gdiffsplit<CR>", desc = "Git diff split" },
       { "<leader>gs", "<Cmd>Git<CR>", desc = "Git Status" },
       { "<leader>gg", function()
+          -- Check if there are changes to commit
+          local result = vim.fn.system("git status --porcelain")
+          if result == "" then
+            vim.notify("✗ No changes to commit", vim.log.levels.WARN)
+            return
+          end
           -- Non-blocking commit with default message
-          vim.cmd("Git add .")
-          vim.cmd("Git commit -m 'whatever'")
+          vim.cmd("silent Git add .")
+          vim.cmd("silent Git commit -m 'whatever'")
           vim.notify("✓ Committed with 'whatever'", vim.log.levels.INFO)
         end, desc = "Quick add and commit" },
       { "<leader>gc", function()
+          -- Check if there are changes to commit
+          local result = vim.fn.system("git status --porcelain")
+          if result == "" then
+            vim.notify("✗ No changes to commit", vim.log.levels.WARN)
+            return
+          end
           -- Custom commit message using command line
           vim.ui.input({ prompt = "Commit message: " }, function(input)
             if input and input ~= "" then
-              vim.cmd("Git add .")
-              vim.cmd("Git commit -m '" .. input .. "'")
+              vim.cmd("silent Git add .")
+              vim.cmd("silent Git commit -m '" .. input .. "'")
               vim.notify("✓ Committed: " .. input, vim.log.levels.INFO)
             else
               vim.notify("✗ Commit cancelled", vim.log.levels.WARN)

@@ -22,13 +22,13 @@ return {
         max_height = 10,
         
         -- Render style: "default", "minimal", "simple", "compact"
-        render = "compact",
+        render = "minimal",
         
         -- Background color (hex) - you can change this to match your theme
         background_colour = "#1f1f28",
 
-        -- Remove border completely
-        border = "shadow",
+        -- Remove border completely (force no border)
+        -- border = { "", "", "", "", "", "", "", "" },
         
         -- Position: true = top-down, false = bottom-up
         top_down = false,

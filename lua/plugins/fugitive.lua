@@ -39,6 +39,8 @@ return {
               notify.git.error("Commit cancelled")
             end
           end)
+-- test
+
         end, desc = "Add and commit with custom message" },
       { "<leader>gp", function()
           local notify = require('config.notify')

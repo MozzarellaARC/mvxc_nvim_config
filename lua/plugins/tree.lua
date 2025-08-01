@@ -17,7 +17,7 @@ return {
           show_scrolled_off_parent_node = true,
           sources = {
             { source = "filesystem", display_name = " 󰉓 Files " },
-            -- { source = "buffers", display_name = " 󰈚 Buffers " },
+            { source = "buffers", display_name = " 󰈚 Buffers " },
             { source = "git_status", display_name = " 󰊢 Git " },
           },
         },

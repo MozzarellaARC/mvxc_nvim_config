@@ -25,7 +25,7 @@ return {
         render = "minimal",
         
         -- Background color (hex) - you can change this to match your theme
-        background_colour = "#1f1f28",
+        -- background_colour = "#1f1f28",
 
         -- Remove border completely (force no border)
         border = { "", "", "", "", "", "", "", "" },

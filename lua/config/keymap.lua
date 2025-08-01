@@ -69,6 +69,7 @@ map('i', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in insert mod
 map('v', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in visual mode
 
 --this is just a test
+--here is another test
 
 -- Now map to buffer navigation
 -- map('n', '<C-S-Left>', '<Cmd>BufferPrevious<CR>', opts)

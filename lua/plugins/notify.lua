@@ -17,8 +17,48 @@ return {
         error = "❌",
       }
       
+      -- Function to wrap long text with manual line breaks
+      local function wrap_text(text, max_width)
+        if #text <= max_width then
+          return text
+        end
+        
+        local lines = {}
+        local current_line = ""
+        
+        for word in text:gmatch("%S+") do
+          if #current_line + #word + 1 <= max_width then
+            if current_line == "" then
+              current_line = word
+            else
+              current_line = current_line .. " " .. word
+            end
+          else
+            if current_line ~= "" then
+              table.insert(lines, current_line)
+            end
+            current_line = word
+          end
+        end
+        
+        if current_line ~= "" then
+          table.insert(lines, current_line)
+        end
+        
+        return table.concat(lines, "\n")
+      end
+      
+      -- Custom notify function with text wrapping
+      local original_notify = notify
+      local function wrapped_notify(message, level, opts)
+        opts = opts or {}
+        local max_width = opts.max_width or 70 -- Default wrap width
+        local wrapped_message = wrap_text(tostring(message), max_width)
+        return original_notify(wrapped_message, level, opts)
+      end
+      
       -- Set notify as the default notification handler
-      vim.notify = notify
+      vim.notify = wrapped_notify
       
       -- Configure notify with full GUI options
       notify.setup({
@@ -149,6 +189,7 @@ return {
           vim.notify(" Copied: " .. source_name .. " → " .. dest_name, vim.log.levels.INFO, {
             title = "File Operation",
             timeout = 2500,
+            max_width = 70,
           })
         end,
         
@@ -159,6 +200,7 @@ return {
           vim.notify(" Moved: " .. source_name .. " → " .. dest_name, vim.log.levels.INFO, {
             title = "File Operation",
             timeout = 2500,
+            max_width = 70,
           })
         end,
         

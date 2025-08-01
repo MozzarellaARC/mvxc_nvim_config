@@ -21,11 +21,14 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.number = true        -- Show absolute line numbers
 -- vim.opt.relativenumber = false -- Show relative line numbers (optional)
 
+vim.o.swapfile = false
+vim.opt.autoread = true
+
 -- Indentation settings
 vim.opt.expandtab = false     -- Use tabs instead of spaces
-vim.opt.shiftwidth = 4        -- Size of an indent
-vim.opt.tabstop = 4           -- Number of spaces tabs count for
-vim.opt.softtabstop = 4       -- Number of spaces tabs count for in insert mode
+-- vim.opt.shiftwidth = 2        -- Size of an indent
+-- vim.opt.tabstop = 2           -- Number of spaces tabs count for
+-- vim.opt.softtabstop = 2       -- Number of spaces tabs count for in insert mode
 vim.opt.smartindent = true    -- Smart autoindenting
 vim.opt.list = true           -- Show some invisible characters
 vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
@@ -83,26 +86,21 @@ require("lazy").setup({
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "dragon" } },
   -- automatically check for plugin updates (notifications disabled to prevent intrusive prompts)
   checker = { 
     enabled = true,
-    concurrency = nil, ---@type number? set to 1 to check for updates very slowly
+    -- concurrency = 1, ---@type number? set to 1 to check for updates very slowly
     notify = false,  -- Disable notifications that pause your buffer
-    frequency = 3600, -- Check only once per hour instead of constantly
+    -- frequency = 3600, -- Check only once per hour instead of constantly
   },
   change_detection = {
     -- automatically check for config file changes and reload the ui
-    enabled = true,
+    -- enabled = true,
     notify = false, -- Disable notifications for config changes (this was the main culprit!)
   },
   performance = {
     cache = {
       enabled = true,
-    },
-    reset_packpath = true, -- reset the package path to improve startup time
-    rtp = {
-      reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
-    },
+   }
   }
 })

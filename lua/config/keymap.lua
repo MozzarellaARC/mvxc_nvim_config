@@ -2,12 +2,10 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- Enable extended key protocol for better terminal key recognition
-vim.opt.timeout = true
-vim.opt.timeoutlen = 300
+-- vim.opt.timeout = true
+-- vim.opt.timeoutlen = 300
 
 -- Disable default keybindings
-map({ 'n', 'i', 'v' }, '<C-.>', '<Nop>')
-map({ 'n', 'i', 'v' }, '<C-S-.>', '<Nop>')
 map({ 'n', 'i', 'v' }, '<C-w>', '<Nop>')
 map({ 'n', 'i', 'v' }, '<C-r>', '<Nop>')
 map({'n', 'v'}, 'h', '<Nop>', opts)
@@ -41,7 +39,7 @@ map({'n', 'v'}, 'Q', '<Nop>', opts)
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 
 ---General keybindings
-map('n', '<C-z>', 'u', opts)  -- undo with z
+map('n', 'z', 'u', opts)  -- undo with z
 map('n', '<C-S-z>', '<C-r>', opts)  -- Redo with Shift+z
 
 map('n', '<C-s>', ':w<CR>', opts) -- Save with Ctrl+s
@@ -92,9 +90,9 @@ map('v', '<A-,>', '<gv', { noremap = true, silent = true })
 map('v', '<A-.>', '>gv', { noremap = true, silent = true })
 
 -- Commentation keybindings
-map('n', '<A-/>', 'gcc', { noremap = false, silent = true })
+map('n', '<A-/>', 'gcc', { noremap = true, silent = true })
 
-map('v', '<A-/>', 'gcgv', { noremap = false, silent = true })
+map('v', '<A-/>', 'gcgv', { noremap = true, silent = true })
 
 map('i', '<A-/>', '<Esc>gcc<CR>i', { noremap = false, silent = true })
 

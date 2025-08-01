@@ -42,30 +42,6 @@ return {
           },
         },
         -- default_component_configs = {
-        --   indent = {
-        --     with_expanders = true,
-        --     expander_collapsed = "",
-        --     expander_expanded = "",
-        --   },
-        --   icon = {
-        --     folder_closed = "",
-        --     folder_open = "",
-        --     folder_empty = "󰜌",
-        --     default = "󰈙",
-        --   },
-        --   git_status = {
-        --     symbols = {
-        --       added     = "✚",
-        --       modified  = "",
-        --       deleted   = "✖",
-        --       renamed   = "󰁕",
-        --       untracked = "",
-        --       ignored   = "",
-        --       unstaged  = "󰄱",
-        --       staged    = "",
-        --       conflict  = "",
-        --     },
-        --   },
         -- },
       })
       vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Toggle Neotree" })

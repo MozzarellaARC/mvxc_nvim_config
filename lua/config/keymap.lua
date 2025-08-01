@@ -6,6 +6,7 @@ local map = vim.keymap.set
 
 -- Disable default keybindings
 map({ 'n', 'i', 'v' }, '<C-r>', '<Nop>')
+map({ 'n', 'i', 'v' }, '<C-w>', '<Nop>', {nowait = true})
 map({'n', 'v'}, 'h', '<Nop>')
 map({'n', 'v'}, 'j', '<Nop>')
 map({'n', 'v'}, 'k', '<Nop>')
@@ -160,7 +161,7 @@ map('n', '<C-w>', function()
     -- Single window or special buffer type: delete buffer
     vim.cmd('bd')
   end
-end, {noremap = true, nowait = true})
+end)
 
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS

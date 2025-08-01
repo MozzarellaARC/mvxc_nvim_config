@@ -64,10 +64,6 @@ return {
         hi NotifyTRACEBorder guifg=#1f1f28 guibg=#1f1f28
         hi NotifyBackground guibg=#1f1f28
       ]])
-      
-      -- Set up global notification override for ALL vim notifications
-      local global_notify = require('config.global-notify')
-      global_notify.setup()
     end,
   }
 }

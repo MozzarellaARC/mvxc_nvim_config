@@ -2,8 +2,11 @@ return {
 	"lukas-reineke/indent-blankline.nvim",
 	opts = {
 		indent = {
-			char = '▏',
+			char = "|",
 		},
+		-- whitespace = {
+		-- 	char = "┇",
+		-- },
 	},
 	config = function(_, opts)
 		local highlight = {

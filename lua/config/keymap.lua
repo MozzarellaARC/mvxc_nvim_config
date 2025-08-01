@@ -127,8 +127,27 @@ map('v', '<F3>', '<cmd>Trouble diagnostics toggle<cr>')
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 
--- Set up the keymap
-map({ 'n', 'v' }, '<C-w>', '<Cmd>BufferClose<CR>',  { nowait = true })
+-- Override the entire C-w prefix with conditional behavior
+map('n', '<C-w>', function()
+  -- Get the number of windows in current tab
+  local win_count = vim.fn.winnr('$')
+  -- Also check if current window is the last "normal" window
+  -- (excluding special windows like quickfix, help, etc.)
+  local current_win = vim.api.nvim_get_current_win()
+  local buf = vim.api.nvim_win_get_buf(current_win)
+  local buftype = vim.bo[buf].buftype
+  if win_count > 1 and buftype == '' then
+    -- Multiple windows and current is a normal buffer: close current window
+    local ok= pcall(function()vim.cmd('close') end)
+    if not ok then
+      -- If close fails, fallback to deleting buffer
+      vim.cmd('bd')
+    end
+  else
+    -- Single window or special buffer type: delete buffer
+    vim.cmd('bd')
+  end
+end, {noremap = true, nowait = true})
 
 -- Toggle function for Diffview
 local function toggle_diffview()

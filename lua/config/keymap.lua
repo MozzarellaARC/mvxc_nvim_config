@@ -1,5 +1,5 @@
-local map = vim.keymap.set
-local xmap = vim.api.nvim_set_keymap
+local map = vim.api.nvim_set_keymap
+local xmap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- -- Enable extended key protocol for better terminal key recognition
@@ -7,12 +7,12 @@ local opts = { noremap = true, silent = true }
 -- vim.opt.timeoutlen = 300
 
 -- Disable default keybindings
-map({ 'n', 'i', 'v' }, '<C-r>', '<Nop>')
-map({'n', 'v'}, 'h', '<Nop>', opts)
-map({'n', 'v'}, 'j', '<Nop>', opts)
-map({'n', 'v'}, 'k', '<Nop>', opts)
-map({'n', 'v'}, 'l', '<Nop>', opts)
-map({'n', 'v'}, 'Q', '<Nop>', opts)
+xmap({ 'n', 'i', 'v' }, '<C-r>', '<Nop>')
+xmap({'n', 'v'}, 'h', '<Nop>', opts)
+xmap({'n', 'v'}, 'j', '<Nop>', opts)
+xmap({'n', 'v'}, 'k', '<Nop>', opts)
+xmap({'n', 'v'}, 'l', '<Nop>', opts)
+xmap({'n', 'v'}, 'Q', '<Nop>', opts)
 
 
 
@@ -22,7 +22,7 @@ map({'n', 'v'}, 'Q', '<Nop>', opts)
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
-
+--
 -- This to PowerShell Settings
 --    {
 --             "command": 
@@ -41,8 +41,8 @@ map({'n', 'v'}, 'Q', '<Nop>', opts)
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 
 ---General keybindings
-xmap('n', 'z', 'u', opts)  -- undo with z
-xmap('n', '<C-S-z>', '<C-r>', opts)  -- Redo with Shift+z
+map('n', 'z', 'u', opts)  -- undo with z
+map('n', '<C-S-z>', '<C-r>', opts)  -- Redo with Shift+z
 
 xmap('n', '<C-s>', ':w<CR>', {noremap = true, nowait = true}) -- Save with Ctrl+s
 xmap('i', '<C-s>', '<Esc>:w<CR>', {noremap = true, nowait = true}) -- Save with Ctrl+s
@@ -93,28 +93,25 @@ map('i', '<C-.>', '<C-t>', { noremap = true, silent = true })
 map('v', '<C-,>', '<gv', { noremap = true, silent = true })
 map('v', '<C-.>', '>gv', { noremap = true, silent = true })
 
--- Commentation keybindings
-xmap('n', '<A-/>', 'gcc', { noremap = false, silent = true })
-
-xmap('v', '<A-/>', 'gcgv', { noremap = false, silent = true })
-
-xmap('i', '<A-/>', '<Esc>gcc<CR>i', { noremap = false, silent = true })
+xmap('n', '<A-/>', '<Cmd>normal gcc<CR>', { silent = true })
+xmap('v', '<A-/>', '<Cmd>normal gcgv<CR>', { silent = true })
+xmap('i', '<A-/>', '<Esc><Cmd>normal gcc<CR>i', { silent = true })
 
 --- Yazi keybindings
-map('n', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
-map('v', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
-map('n', '<space>cw', '<Cmd>Yazi cwd<CR>', opts)  -- Open yazi in working directory
+xmap('n', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
+xmap('v', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
+xmap('n', '<space>cw', '<Cmd>Yazi cwd<CR>', opts)  -- Open yazi in working directory
 
 
 -- Directory tree keybindings
-map('n', '<F1>', '<Cmd>Neotree toggle<CR>', opts)  -- Open yazi in current file
-map('v', '<F1>', '<Cmd>Neotree toggle<CR>', opts)  -- Open yazi in current file
+xmap('n', '<F1>', '<Cmd>Neotree toggle<CR>')  -- Open yazi in current file
+xmap('v', '<F1>', '<Cmd>Neotree toggle<CR>')  -- Open yazi in current file
 
-map('n', '<F2>', function() _G.undotree_toggle() end, { desc = "Toggle Undotree" })  -- Toggle undotree
-map('v', '<F2>', function() _G.undotree_toggle() end, { desc = "Toggle Undotree" })  -- Toggle undotree
+xmap('n', '<F2>', function() _G.undotree_toggle() end, { desc = "Toggle Undotree" })  -- Toggle undotree
+xmap('v', '<F2>', function() _G.undotree_toggle() end, { desc = "Toggle Undotree" })  -- Toggle undotree
 
-map('n', '<F3>', '<cmd>Trouble diagnostics toggle<cr>', opts)
-map('v', '<F3>', '<cmd>Trouble diagnostics toggle<cr>', opts)
+xmap('n', '<F3>', '<cmd>Trouble diagnostics toggle<cr>')
+xmap('v', '<F3>', '<cmd>Trouble diagnostics toggle<cr>')
 
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
@@ -124,7 +121,7 @@ map('v', '<F3>', '<cmd>Trouble diagnostics toggle<cr>', opts)
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 
 -- Override the entire C-w prefix with conditional behavior
-map('n', '<C-w>', function()
+xmap('n', '<C-w>', function()
   -- Get the number of windows in current tab
   local win_count = vim.fn.winnr('$')
   -- Also check if current window is the last "normal" window

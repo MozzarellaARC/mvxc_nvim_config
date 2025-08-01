@@ -86,6 +86,8 @@ map('v', '<C-c>', 'y') -- Copy selection with Ctrl+c
 
 -- Buffer navigation keybindings
 map('n', '<Tab>', ':wincmd w<CR>')
+map('n', '<C-S-Left>', '<Cmd>BufferPrevious<CR>')  -- Go to previous buffer
+map('n', '<C-S-Right>', '<Cmd>BufferNext<CR>')  -- Go to next buffer
 
 -- Indentation keybindings
 map('n', '<C-,>', '<<')

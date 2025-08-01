@@ -154,9 +154,9 @@ return {
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
       },
       sources = cmp.config.sources({
-        { name = "path", max_item_count = 5 },
+        { name = "path", max_item_count = 20 },
       }, {
-        { name = "cmdline", max_item_count = 5 },
+        { name = "cmdline", max_item_count = 20 },
       }),
       window = {
         completion = {
@@ -189,7 +189,7 @@ return {
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
       },
       sources = {
-        { name = "buffer", max_item_count = 5 },
+        { name = "buffer", max_item_count = 20 },
       },
       window = {
         completion = {

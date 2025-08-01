@@ -39,13 +39,14 @@ map({'n', 'v'}, 'Q', '<Nop>', opts)
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
-
+aaa
 ---General keybindings
 map('n', '<C-z>', 'u', opts)  -- undo with z
 map('n', '<C-S-z>', '<C-r>', opts)  -- Redo with Shift+z
 
 map('n', '<C-s>', ':w<CR>', opts) -- Save with Ctrl+s
-map('n', '<C-M-s>', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s
+map('n', '<C-S>s', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s
+
 map('n', '<F4>', ':qa!<CR>', opts) -- Exit Neovim
 map('v', '<C-c>', 'y', opts) -- Copy selection with Ctrl+c
 

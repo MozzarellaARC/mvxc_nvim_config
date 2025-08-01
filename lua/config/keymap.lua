@@ -30,9 +30,25 @@ xmap({'n', 'v'}, 'Q', '<Nop>', opts)
 --                 "action": "sendInput",
 --                 "input": "\u001b[90;5u"
 --             },
---             "id": "User.sendInput.D77F01E1"
+--             "id": "User.sendInput.CtrlShiftZ"
 --         },
-
+--    {
+--             "command": 
+--             {
+--                 "action": "sendInput",
+--                 "input": "\u001b[44;5u"
+--             },
+--             "id": "User.sendInput.CtrlComma"
+--         },
+--    {
+--             "command": 
+--             {
+--                 "action": "sendInput",
+--                 "input": "\u001b[46;5u"
+--             },
+--             "id": "User.sendInput.CtrlPeriod"
+--         }
+--
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
@@ -84,14 +100,14 @@ map('v', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in visual mod
 map('n', '<Tab>', ':wincmd w<CR>', { noremap = true, silent = true })
 
 -- Indentation keybindings
-map('n', '<C-,>', '<<', { noremap = true, silent = true })
-map('n', '<C-.>', '>>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-,>', '<Cmd>normal! <<CR>', { silent = true })
+vim.keymap.set('n', '<C-.>', '<Cmd>normal! >>CR>', { silent = true })
 
-map('i', '<C-,>', '<C-d>', { noremap = true, silent = true })
-map('i', '<C-.>', '<C-t>', { noremap = true, silent = true })
+xmap('i', '<C-,>', '<C-d>')
+xmap('i', '<C-.>', '<C-t>')
 
-map('v', '<C-,>', '<gv', { noremap = true, silent = true })
-map('v', '<C-.>', '>gv', { noremap = true, silent = true })
+xmap('v', '<C-,>', '<gv')
+xmap('v', '<C-.>', '>gv')
 
 -- Comment-out keybindings
 xmap('n', '<A-/>', '<Cmd>normal gcc<CR>', { silent = true })

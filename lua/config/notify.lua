@@ -5,10 +5,10 @@
 --        notify.info("Information message")
 --        notify.warn("Warning message")
 
-local M = {}
+local global_notify = {}
 
 -- Icons for different notification types
--- M.icons = {
+-- global_notify.icons = {
 --   ERROR = "✗",
 --   WARN = "⚠",
 --   INFO = "ℹ",
@@ -20,7 +20,7 @@ local M = {}
 -- }
 
 -- Notification levels
-M.levels = {
+global_notify.levels = {
   ERROR = vim.log.levels.ERROR,
   WARN = vim.log.levels.WARN,
   INFO = vim.log.levels.INFO,
@@ -43,44 +43,44 @@ local function get_notify()
 end
 
 -- Notification wrapper functions
-function M.notify(message, level, opts)
+function global_notify.notify(message, level, opts)
   local notify_fn = get_notify()
   opts = opts or {}
   
   if notify_fn == default_notify then
-    notify_fn(message, level or M.levels.INFO)
+    notify_fn(message, level or global_notify.levels.INFO)
   else
-    notify_fn(message, level or M.levels.INFO, opts)
+    notify_fn(message, level or global_notify.levels.INFO, opts)
   end
 end
 
-function M.success(message, opts)
-  M.notify(message, M.levels.INFO, opts)
+function global_notify.success(message, opts)
+  global_notify.notify(message, global_notify.levels.INFO, opts)
 end
 
-function M.error(message, opts)
-  M.notify(message, M.levels.ERROR, opts)
+function global_notify.error(message, opts)
+  global_notify.notify(message, global_notify.levels.ERROR, opts)
 end
 
-function M.warn(message, opts)
-  M.notify( message, M.levels.WARN, opts)
+function global_notify.warn(message, opts)
+  global_notify.notify( message, global_notify.levels.WARN, opts)
 end
 
-function M.info(message, opts)
-  M.notify(message, M.levels.INFO, opts)
+function global_notify.info(message, opts)
+  global_notify.notify(message, global_notify.levels.INFO, opts)
 end
 
 -- Git-specific notifications
-M.git = {
+global_notify.git = {
   success = function(message, opts)
-    M.notify(message, M.levels.INFO, opts)
+    global_notify.notify(message, global_notify.levels.INFO, opts)
   end,
   error = function(message, opts)
-    M.notify(message, M.levels.ERROR, opts)
+    global_notify.notify(message, global_notify.levels.ERROR, opts)
   end,
   info = function(message, opts)
-    M.notify(message, M.levels.INFO, opts)
+    global_notify.notify(message, global_notify.levels.INFO, opts)
   end,
 }
 
-return M
+return global_notify

@@ -10,13 +10,14 @@ return {
       { "<leader>gs", "<Cmd>Git<CR>", desc = "Git Status" },
       { "<leader>gg", function()
           local commit_msg = vim.fn.input("Commit message: ")
-          if commit_msg ~= "" then
-            vim.cmd("Git add .")
-            vim.cmd("Git commit -m '" .. commit_msg .. "'")
+          if commit_msg == "" then
+            commit_msg = "whatever"
           end
+          vim.cmd("Git add .")
+          vim.cmd("Git commit -m '" .. commit_msg .. "'")
         end, desc = "Add, commit and push" },
       { "<leader>gp", ":Git push<CR>", desc = "Git push" },
-
+-- test man
     },
     dependencies = {
     },

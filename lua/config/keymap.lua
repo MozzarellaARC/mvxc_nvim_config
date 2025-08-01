@@ -2,7 +2,7 @@ local map = vim.api.nvim_set_keymap
 local xmap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- -- Enable extended key protocol for better terminal key recognition
+-- Enable extended key protocol for better terminal key recognition
 -- vim.opt.timeout = true
 -- vim.opt.timeoutlen = 300
 

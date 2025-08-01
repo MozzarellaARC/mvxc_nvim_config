@@ -19,7 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 vim.opt.number = true        -- Show absolute line numbers
-vim.opt.relativenumber = false -- Show relative line numbers (optional)
+-- vim.opt.relativenumber = false -- Show relative line numbers (optional)
 
 -- Indentation settings
 vim.opt.expandtab = false     -- Use tabs instead of spaces

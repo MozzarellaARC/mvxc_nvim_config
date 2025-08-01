@@ -70,6 +70,29 @@ map('v', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in visual mod
 -- map('n', '<C-S-Left>', '<Cmd>bpref<CR>', opts)
 -- map('n', '<C-S-Right>', '<Cmd>bnext<CR>', opts)
 
+vim.api.nvim_set_keymap('n', '<Tab>', ':wincmd w<CR>', { noremap = true, silent = true })
+
+-- Normal mode indentation
+vim.api.nvim_set_keymap('n', '<A-,>', '<<', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-.>', '>>', { noremap = true, silent = true })
+
+-- Insert mode indentation
+vim.api.nvim_set_keymap('i', '<A-,>', '<C-d>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<A-.>', '<C-t>', { noremap = true, silent = true })
+
+-- Visual mode indentation
+vim.api.nvim_set_keymap('v', '<A-,>', '<gv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<A-.>', '>gv', { noremap = true, silent = true })
+
+-- Toggle comment for current line in normal mode
+vim.api.nvim_set_keymap('n', '<A-/>', 'gcc', { noremap = false, silent = true })
+
+-- Toggle comment for selection in visual mode
+vim.api.nvim_set_keymap('v', '<A-/>', 'gcgv', { noremap = false, silent = true })
+
+-- Toggle comment in insert mode
+vim.api.nvim_set_keymap('i', '<A-/>', '<Esc>gcc<CR>i', { noremap = false, silent = true })
+
 --- Yazi keybindings
 map('n', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
 map('n', '<space>cw', '<Cmd>Yazi cwd<CR>', opts)  -- Open yazi in working directory

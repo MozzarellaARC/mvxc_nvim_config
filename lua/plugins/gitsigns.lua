@@ -1,5 +1,6 @@
  return {
 	 "lewis6991/gitsigns.nvim",
+	 event = "VeryLazy",
 	 config = function ()
 		require('gitsigns').setup {
 		  signs = {
@@ -50,7 +51,6 @@
 		    col = 1
 		  },
 		}
-	 	
 	end
  }
 

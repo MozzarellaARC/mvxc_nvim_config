@@ -10,7 +10,7 @@ return {
       -- Configure notify with full GUI options
       notify.setup({
         -- Animation style: "fade", "slide", "fade_in_slide_out", "static"
-        stages = "fade_in_slide_out",
+        stages = "static",
         
         -- Timeout in milliseconds
         timeout = 3000,
@@ -25,10 +25,10 @@ return {
         render = "compact",
         
         -- Background color (hex) - you can change this to match your theme
-        background_colour = "#1e222a",
+        background_colour = "#1f1f28",
         
         -- Position: true = top-down, false = bottom-up
-        top_down = true,
+        top_down = false,
         
         -- Minimum notification level to show
         level = vim.log.levels.INFO,

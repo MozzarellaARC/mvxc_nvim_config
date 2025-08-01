@@ -28,7 +28,7 @@ return {
         background_colour = "#1f1f28",
         
         -- Remove border completely
-        border = "none",
+        border = "",
         
         -- Position: true = top-down, false = bottom-up
         top_down = false,

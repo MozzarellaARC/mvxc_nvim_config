@@ -8,11 +8,11 @@ local opts = { noremap = true, silent = true }
 
 -- Disable default keybindings
 xmap({ 'n', 'i', 'v' }, '<C-r>', '<Nop>')
-xmap({'n', 'v'}, 'h', '<Nop>', opts)
-xmap({'n', 'v'}, 'j', '<Nop>', opts)
-xmap({'n', 'v'}, 'k', '<Nop>', opts)
-xmap({'n', 'v'}, 'l', '<Nop>', opts)
-xmap({'n', 'v'}, 'Q', '<Nop>', opts)
+xmap({'n', 'v'}, 'h', '<Nop>')
+xmap({'n', 'v'}, 'j', '<Nop>')
+xmap({'n', 'v'}, 'k', '<Nop>')
+xmap({'n', 'v'}, 'l', '<Nop>')
+xmap({'n', 'v'}, 'Q', '<Nop>')
 
 
 
@@ -47,8 +47,16 @@ xmap({'n', 'v'}, 'Q', '<Nop>', opts)
 --                 "input": "\u001b[46;5u"
 --             },
 --             "id": "User.sendInput.CtrlPeriod"
+--         },
+--    {
+--             "command": 
+--             {
+--                 "action": "sendInput",
+--                 "input": "\u001b[47;5u"
+--             },
+--             "id": "User.sendInput.CtrlSlash"
 --         }
---
+-- --
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
@@ -57,51 +65,33 @@ xmap({'n', 'v'}, 'Q', '<Nop>', opts)
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 
 ---General keybindings
-map('n', 'z', 'u', opts)  -- undo with z
-map('n', '<C-S-z>', '<C-r>', opts)  -- Redo with Shift+z
+xmap('n', 'z', 'u')  -- undo with z
+xmap('n', '<C-S-z>', '<C-r>')  -- Redo with Shift+z
 
-xmap('n', '<C-s>', ':w<CR>', {noremap = true, nowait = true}) -- Save with Ctrl+s
-xmap('i', '<C-s>', '<Esc>:w<CR>', {noremap = true, nowait = true}) -- Save with Ctrl+s
-xmap('v', '<C-s>', '<Esc>:w<CR>', {noremap = true, nowait = true}) -- Save with Ctrl+s
--- map('n', '<C-S>s', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s If this is turned on, it will gives delays to the Ctrl+s keybinding
+xmap('n', '<C-s>', ':w<CR>') -- Save with Ctrl+s
+xmap('i', '<C-s>', '<Esc>:w<CR>') -- Save with Ctrl+s
+xmap('v', '<C-s>', '<Esc>:w<CR>') -- Save with Ctrl+s
+-- map('n', '<C-S>s', ':wa<CR>') -- Save all buffers with Ctrl+Alt+s If this is turned on, it will gives delays to the Ctrl+s keybinding
 
-map('n', '<F4>', ':qa!<CR>', opts) -- Exit Neovim
-map('v', '<C-c>', 'y', opts) -- Copy selection with Ctrl+c
+xmap('n', '<F4>', ':qa!<CR>') -- Exit Neovim
+xmap('v', '<C-c>', 'y') -- Copy selection with Ctrl+c
 
 --- Fugitive keybindings
-map("n", "<leader>gs", ":Git<CR>", opts)
-map("n", "<leader>gd", ":Gdiffsplit<CR>", opts)
-map("n", "<leader>gc", ":Git commit<CR>", opts)
-map("n", "<leader>gp", ":Git push<CR>", opts)
-map("n", "<leader>gl", ":Git pull<CR>", opts)
-map("n", "<leader>gb", ":Git blame<CR>", opts)
-map("n", "<leader>gh", ":GBrowse<CR>", opts)
-map("v", "<leader>gh", ":GBrowse<CR>", opts)
-
--- Barbar keybindings
-map('n', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left in normal mode
-map('i', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left in insert mode
-map('v', '<C-S-Left>', '<Nop>', opts)   -- Disable word jump left in visual mode
-map('n', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in normal mode
-map('i', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in insert mode
-map('v', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in visual mode
-
---this is just a test
---here is another test
-
--- Now map to buffer navigation
--- map('n', '<C-S-Left>', '<Cmd>BufferPrevious<CR>', opts)
--- map('n', '<C-S-Right>', '<Cmd>BufferNext<CR>', opts)
-
--- map('n', '<C-S-Left>', '<Cmd>bpref<CR>', opts)
--- map('n', '<C-S-Right>', '<Cmd>bnext<CR>', opts)
+-- map("n", "<leader>gs", ":Git<CR>")
+-- map("n", "<leader>gd", ":Gdiffsplit<CR>")
+-- map("n", "<leader>gc", ":Git commit<CR>")
+-- map("n", "<leader>gp", ":Git push<CR>")
+-- map("n", "<leader>gl", ":Git pull<CR>")
+-- map("n", "<leader>gb", ":Git blame<CR>")
+-- map("n", "<leader>gh", ":GBrowse<CR>")
+-- map("v", "<leader>gh", ":GBrowse<CR>")
 
 -- Buffer navigation keybindings
-map('n', '<Tab>', ':wincmd w<CR>', { noremap = true, silent = true })
+xmap('n', '<Tab>', ':wincmd w<CR>')
 
 -- Indentation keybindings
-xmap('n', '<C-,>', '<Cmd>normal! <<<CR>', { silent = true })
-xmap('n', '<C-.>', '<Cmd>normal! >><CR>', { silent = true })
+xmap('n', '<C-,>', '<<')
+xmap('n', '<C-.>', '>>')
 
 xmap('i', '<C-,>', '<C-d>')
 xmap('i', '<C-.>', '<C-t>')
@@ -110,14 +100,14 @@ xmap('v', '<C-,>', '<gv')
 xmap('v', '<C-.>', '>gv')
 
 -- Comment-out keybindings
-xmap('n', '<A-/>', '<Cmd>normal gcc<CR>', { silent = true })
-xmap('v', '<A-/>', '<Cmd>normal gcgv<CR>', { silent = true })
-xmap('i', '<A-/>', '<Esc><Cmd>normal gcc<CR>i', { silent = true })
+xmap('n', '<C-/>', '<Cmd>normal gcc<CR>', { silent = true })
+xmap('v', '<C-/>', '<Cmd>normal gcgv<CR>', { silent = true })
+xmap('i', '<C-/>', '<Esc><Cmd>normal gcc<CR>i', { silent = true })
 
 --- Yazi keybindings
-xmap('n', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
-xmap('v', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
-xmap('n', '<space>cw', '<Cmd>Yazi cwd<CR>', opts)  -- Open yazi in working directory
+xmap('n', '<space><space>', '<Cmd>Yazi<CR>')  -- Open yazi at current file
+xmap('v', '<space><space>', '<Cmd>Yazi<CR>')  -- Open yazi at current file
+xmap('n', '<space>cw', '<Cmd>Yazi cwd<CR>')  -- Open yazi in working directory
 
 
 -- Directory tree keybindings

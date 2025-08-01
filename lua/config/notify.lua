@@ -8,16 +8,16 @@
 local M = {}
 
 -- Icons for different notification types
--- M.icons = {
---   ERROR = "✗",
---   WARN = "⚠",
---   INFO = "ℹ",
---   DEBUG = "🐛",
---   SUCCESS = "✓",
---   GIT_SUCCESS = "🔥",
---   GIT_ERROR = "❌",
---   GIT_INFO = "📝",
--- }
+M.icons = {
+  ERROR = "✗",
+  WARN = "⚠",
+  INFO = "ℹ",
+  DEBUG = "🐛",
+  SUCCESS = "✓",
+  GIT_SUCCESS = "🔥",
+  GIT_ERROR = "❌",
+  GIT_INFO = "📝",
+}
 
 -- Notification levels
 M.levels = {

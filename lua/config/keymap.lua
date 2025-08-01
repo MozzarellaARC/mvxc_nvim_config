@@ -62,13 +62,11 @@ map('i', '<A-.>', '<C-t>', { noremap = true, silent = true })
 map('v', '<A-,>', '<gv', { noremap = true, silent = true })
 map('v', '<A-.>', '>gv', { noremap = true, silent = true })
 
--- Toggle comment for current line in normal mode
+-- Commentation keybindings
 map('n', '<A-/>', 'gcc', { noremap = false, silent = true })
 
--- Toggle comment for selection in visual mode
 map('v', '<A-/>', 'gcgv', { noremap = false, silent = true })
 
--- Toggle comment in insert mode
 map('i', '<A-/>', '<Esc>gcc<CR>i', { noremap = false, silent = true })
 
 --- Yazi keybindings

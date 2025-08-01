@@ -94,11 +94,11 @@ map('v', '<C-,>', '<gv', { noremap = true, silent = true })
 map('v', '<C-.>', '>gv', { noremap = true, silent = true })
 
 -- Commentation keybindings
-map('n', '<A-/>', 'gcc', { noremap = true, silent = true })
+xmap('n', '<A-/>', 'gcc', { noremap = false, silent = true })
 
-map('v', '<A-/>', 'gcgv', { noremap = true, silent = true })
+xmap('v', '<A-/>', 'gcgv', { noremap = false, silent = true })
 
-map('i', '<A-/>', '<Esc>gcc<CR>i', { noremap = false, silent = true })
+xmap('i', '<A-/>', '<Esc>gcc<CR>i', { noremap = false, silent = true })
 
 --- Yazi keybindings
 map('n', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file

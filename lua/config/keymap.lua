@@ -128,67 +128,24 @@ map('v', '<F3>', '<cmd>Trouble diagnostics toggle<cr>')
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 
 -- Set up the keymap
--- map({ 'n', 'v' }, '<C-w>', '<Cmd>BufferClose<CR>',  { nowait = true })
+map({ 'n', 'v' }, '<C-w>', '<Cmd>BufferClose<CR>',  { nowait = true })
 
--- Override the entire C-w prefix with conditional behavior
--- map('n', '<C-w>', function()
---   -- Get the number of windows in current tab
---   local win_count = vim.fn.winnr('$')
---   -- Also check if current window is the last "normal" window
---   -- (excluding special windows like quickfix, help, etc.)
---   local current_win = vim.api.nvim_get_current_win()
---   local buf = vim.api.nvim_win_get_buf(current_win)
---   local buftype = vim.bo[buf].buftype
---   if win_count > 1 and buftype == '' then
---     -- Multiple windows and current is a normal buffer: close current window
---     local ok= pcall(function()vim.cmd('close') end)
---     if not ok then
---       -- If close fails, fallback to deleting buffer
---       vim.cmd('bd')
---     end
---   else
---     -- Single window or special buffer type: delete buffer
---     vim.cmd('bd')
---   end
--- end, {noremap = true, nowait = true})
---
-
--- local function smart_close()
---   -- Check if Diffview is open by looking at listed buffers
---   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
---     local name = vim.api.nvim_buf_get_name(buf)
---     if name:match("diffview://") then
---       vim.cmd("DiffviewClose")
---       return
---     end
---   end
---   -- Otherwise, close the buffer normally
---   vim.cmd("BufferClose")
--- end
-
-local function smart_close()
-  -- Try DiffviewClose first
-  local diffview_ok = pcall(vim.cmd, 'DiffviewClose')
-  
-  if diffview_ok then
-    -- DiffviewClose succeeded, we're done
-    return
-  end
-  
-  -- DiffviewClose failed, try BufferClose
-  local buffer_close_ok = pcall(vim.cmd, 'BufferClose')
-  
-  if not buffer_close_ok then
-    -- BufferClose failed, use regular close
-    vim.cmd('close')
+-- Toggle function for Diffview
+local function toggle_diffview()
+  local view = require('diffview.lib').get_current_view()
+  if view then
+    -- If diffview is open, close it
+    vim.cmd('DiffviewClose')
+  else
+    -- If diffview is closed, open it
+    vim.cmd('DiffviewOpen')
   end
 end
 
 -- Set up the keymap
-vim.keymap.set({ 'n', 'v' }, '<C-w>', smart_close, { nowait = true, desc = "Smart close: Diffview or buffer" })
+vim.keymap.set('n', '<F5>', toggle_diffview, { desc = 'Toggle Diffview' })
 
-
--- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
+-- loc-- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS

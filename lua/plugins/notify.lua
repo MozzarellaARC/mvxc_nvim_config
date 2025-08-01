@@ -54,6 +54,16 @@ return {
         -- Function called when a window is closed
         on_close = nil,
       })
+      
+      -- Remove borders by making border highlights transparent
+      vim.cmd([[
+        hi NotifyERRORBorder guifg=NONE guibg=NONE
+        hi NotifyWARNBorder guifg=NONE guibg=NONE  
+        hi NotifyINFOBorder guifg=NONE guibg=NONE
+        hi NotifyDEBUGBorder guifg=NONE guibg=NONE
+        hi NotifyTRACEBorder guifg=NONE guibg=NONE
+        hi NotifyBackground guibg=NONE
+      ]])
     end,
   }
 }

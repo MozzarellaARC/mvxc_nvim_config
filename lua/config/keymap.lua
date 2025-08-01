@@ -1,18 +1,16 @@
-local map = vim.api.nvim_set_keymap
-local xmap = vim.keymap.set
-local opts = { noremap = true, silent = true }
+local map = vim.keymap.set
 
 -- Enable extended key protocol for better terminal key recognition
 -- vim.opt.timeout = true
 -- vim.opt.timeoutlen = 300
 
 -- Disable default keybindings
-xmap({ 'n', 'i', 'v' }, '<C-r>', '<Nop>')
-xmap({'n', 'v'}, 'h', '<Nop>')
-xmap({'n', 'v'}, 'j', '<Nop>')
-xmap({'n', 'v'}, 'k', '<Nop>')
-xmap({'n', 'v'}, 'l', '<Nop>')
-xmap({'n', 'v'}, 'Q', '<Nop>')
+map({ 'n', 'i', 'v' }, '<C-r>', '<Nop>')
+map({'n', 'v'}, 'h', '<Nop>')
+map({'n', 'v'}, 'j', '<Nop>')
+map({'n', 'v'}, 'k', '<Nop>')
+map({'n', 'v'}, 'l', '<Nop>')
+map({'n', 'v'}, 'Q', '<Nop>')
 
 
 
@@ -65,16 +63,16 @@ xmap({'n', 'v'}, 'Q', '<Nop>')
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 
 ---General keybindings
-xmap('n', 'z', 'u')  -- undo with z
-xmap('n', '<C-S-z>', '<C-r>')  -- Redo with Shift+z
+map('n', 'z', 'u')  -- undo with z
+map('n', '<C-S-z>', '<C-r>')  -- Redo with Shift+z
 
-xmap('n', '<C-s>', ':w<CR>') -- Save with Ctrl+s
-xmap('i', '<C-s>', '<Esc>:w<CR>') -- Save with Ctrl+s
-xmap('v', '<C-s>', '<Esc>:w<CR>') -- Save with Ctrl+s
+map('n', '<C-s>', ':w<CR>') -- Save with Ctrl+s
+map('i', '<C-s>', '<Esc>:w<CR>') -- Save with Ctrl+s
+map('v', '<C-s>', '<Esc>:w<CR>') -- Save with Ctrl+s
 -- map('n', '<C-S>s', ':wa<CR>') -- Save all buffers with Ctrl+Alt+s If this is turned on, it will gives delays to the Ctrl+s keybinding
 
-xmap('n', '<F4>', ':qa!<CR>') -- Exit Neovim
-xmap('v', '<C-c>', 'y') -- Copy selection with Ctrl+c
+map('n', '<F4>', ':qa!<CR>') -- Exit Neovim
+map('v', '<C-c>', 'y') -- Copy selection with Ctrl+c
 
 --- Fugitive keybindings
 -- map("n", "<leader>gs", ":Git<CR>")
@@ -87,38 +85,38 @@ xmap('v', '<C-c>', 'y') -- Copy selection with Ctrl+c
 -- map("v", "<leader>gh", ":GBrowse<CR>")
 
 -- Buffer navigation keybindings
-xmap('n', '<Tab>', ':wincmd w<CR>')
+map('n', '<Tab>', ':wincmd w<CR>')
 
 -- Indentation keybindings
-xmap('n', '<C-,>', '<<')
-xmap('n', '<C-.>', '>>')
+map('n', '<C-,>', '<<')
+map('n', '<C-.>', '>>')
 
-xmap('i', '<C-,>', '<C-d>')
-xmap('i', '<C-.>', '<C-t>')
+map('i', '<C-,>', '<C-d>')
+map('i', '<C-.>', '<C-t>')
 
-xmap('v', '<C-,>', '<gv')
-xmap('v', '<C-.>', '>gv')
+map('v', '<C-,>', '<gv')
+map('v', '<C-.>', '>gv')
 
 -- Comment-out keybindings
-xmap('n', '<C-/>', '<Cmd>normal gcc<CR>', { silent = true })
-xmap('v', '<C-/>', '<Cmd>normal gcgv<CR>', { silent = true })
-xmap('i', '<C-/>', '<Esc><Cmd>normal gcc<CR>i', { silent = true })
+map('n', '<C-/>', '<Cmd>normal gcc<CR>', { silent = true })
+map('v', '<C-/>', '<Cmd>normal gcgv<CR>', { silent = true })
+map('i', '<C-/>', '<Esc><Cmd>normal gcc<CR>i', { silent = true })
 
 --- Yazi keybindings
-xmap('n', '<space><space>', '<Cmd>Yazi<CR>')  -- Open yazi at current file
-xmap('v', '<space><space>', '<Cmd>Yazi<CR>')  -- Open yazi at current file
-xmap('n', '<space>cw', '<Cmd>Yazi cwd<CR>')  -- Open yazi in working directory
+map('n', '<space><space>', '<Cmd>Yazi<CR>')  -- Open yazi at current file
+map('v', '<space><space>', '<Cmd>Yazi<CR>')  -- Open yazi at current file
+map('n', '<space>cw', '<Cmd>Yazi cwd<CR>')  -- Open yazi in working directory
 
 
 -- Directory tree keybindings
-xmap('n', '<F1>', '<Cmd>Neotree toggle<CR>')  -- Open yazi in current file
-xmap('v', '<F1>', '<Cmd>Neotree toggle<CR>')  -- Open yazi in current file
+map('n', '<F1>', '<Cmd>Neotree toggle<CR>')  -- Open yazi in current file
+map('v', '<F1>', '<Cmd>Neotree toggle<CR>')  -- Open yazi in current file
 
-xmap('n', '<F2>', function() _G.undotree_toggle() end, { desc = "Toggle Undotree" })  -- Toggle undotree
-xmap('v', '<F2>', function() _G.undotree_toggle() end, { desc = "Toggle Undotree" })  -- Toggle undotree
+map('n', '<F2>', function() _G.undotree_toggle() end, { desc = "Toggle Undotree" })  -- Toggle undotree
+map('v', '<F2>', function() _G.undotree_toggle() end, { desc = "Toggle Undotree" })  -- Toggle undotree
 
-xmap('n', '<F3>', '<cmd>Trouble diagnostics toggle<cr>')
-xmap('v', '<F3>', '<cmd>Trouble diagnostics toggle<cr>')
+map('n', '<F3>', '<cmd>Trouble diagnostics toggle<cr>')
+map('v', '<F3>', '<cmd>Trouble diagnostics toggle<cr>')
 
 -- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
@@ -128,7 +126,7 @@ xmap('v', '<F3>', '<cmd>Trouble diagnostics toggle<cr>')
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 
 -- Override the entire C-w prefix with conditional behavior
-xmap('n', '<C-w>', function()
+map('n', '<C-w>', function()
   -- Get the number of windows in current tab
   local win_count = vim.fn.winnr('$')
   -- Also check if current window is the last "normal" window

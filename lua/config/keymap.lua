@@ -100,8 +100,8 @@ map('v', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in visual mod
 map('n', '<Tab>', ':wincmd w<CR>', { noremap = true, silent = true })
 
 -- Indentation keybindings
-vim.keymap.set('n', '<C-,>', '<Cmd>normal! <<CR>', { silent = true })
-vim.keymap.set('n', '<C-.>', '<Cmd>normal! >>CR>', { silent = true })
+xmap('n', '<C-,>', '<Cmd>normal! <<<CR>', { silent = true })
+xmap('n', '<C-.>', '<Cmd>normal! >><CR>', { silent = true })
 
 xmap('i', '<C-,>', '<C-d>')
 xmap('i', '<C-.>', '<C-t>')

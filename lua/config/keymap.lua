@@ -111,8 +111,8 @@ map('n', '<space>cw', '<Cmd>Yazi cwd<CR>')  -- Open yazi in working directory
 
 
 -- Directory tree keybindings
-map('n', '<F1>', '<Cmd>Neotree toggle<CR>')                                         -- Open yazi in current file
-map('v', '<F1>', '<Cmd>Neotree toggle<CR>')                                         -- Open yazi in current file
+map('n', '<F1>', '<Cmd>Neotree toggle<CR>')-- Open yazi in current file
+map('v', '<F1>', '<Cmd>Neotree toggle<CR>')-- Open yazi in current file
 
 map('n', '<F2>', function() _G.undotree_toggle() end, { desc = "Toggle Undotree" }) -- Toggle undotree
 map('v', '<F2>', function() _G.undotree_toggle() end, { desc = "Toggle Undotree" }) -- Toggle undotree

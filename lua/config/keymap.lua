@@ -1,12 +1,11 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- Enable extended key protocol for better terminal key recognition
+-- -- Enable extended key protocol for better terminal key recognition
 -- vim.opt.timeout = true
 -- vim.opt.timeoutlen = 300
 
 -- Disable default keybindings
-map({ 'n', 'i', 'v' }, '<C-w>', '<Nop>')
 map({ 'n', 'i', 'v' }, '<C-r>', '<Nop>')
 map({'n', 'v'}, 'h', '<Nop>', opts)
 map({'n', 'v'}, 'j', '<Nop>', opts)
@@ -42,8 +41,10 @@ map({'n', 'v'}, 'Q', '<Nop>', opts)
 map('n', 'z', 'u', opts)  -- undo with z
 map('n', '<C-S-z>', '<C-r>', opts)  -- Redo with Shift+z
 
-map('n', '<C-s>', ':w<CR>', opts) -- Save with Ctrl+s
-map('n', '<C-S>s', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s
+map('n', '<C-s>', ':w<CR>', {noremap = true, nowait = true}) -- Save with Ctrl+s
+map('i', '<C-s>', '<Esc>:w<CR>', {noremap = true, nowait = true}) -- Save with Ctrl+s
+map('v', '<C-s>', '<Esc>:w<CR>', {noremap = true, nowait = true}) -- Save with Ctrl+s
+-- map('n', '<C-S>s', ':wa<CR>', opts) -- Save all buffers with Ctrl+Alt+s If this is turned on, it will gives delays to the Ctrl+s keybinding
 
 map('n', '<F4>', ':qa!<CR>', opts) -- Exit Neovim
 map('v', '<C-c>', 'y', opts) -- Copy selection with Ctrl+c
@@ -80,14 +81,14 @@ map('v', '<C-S-Right>', '<Nop>', opts)  -- Disable word jump right in visual mod
 map('n', '<Tab>', ':wincmd w<CR>', { noremap = true, silent = true })
 
 -- Indentation keybindings
-map('n', '<A-,>', '<<', { noremap = true, silent = true })
-map('n', '<A-.>', '>>', { noremap = true, silent = true })
+map('n', '<C-,>', '<<', { noremap = true, silent = true })
+map('n', '<C-.>', '>>', { noremap = true, silent = true })
 
-map('i', '<A-,>', '<C-d>', { noremap = true, silent = true })
-map('i', '<A-.>', '<C-t>', { noremap = true, silent = true })
+map('i', '<C-,>', '<C-d>', { noremap = true, silent = true })
+map('i', '<C-.>', '<C-t>', { noremap = true, silent = true })
 
-map('v', '<A-,>', '<gv', { noremap = true, silent = true })
-map('v', '<A-.>', '>gv', { noremap = true, silent = true })
+map('v', '<C-,>', '<gv', { noremap = true, silent = true })
+map('v', '<C-.>', '>gv', { noremap = true, silent = true })
 
 -- Commentation keybindings
 map('n', '<A-/>', 'gcc', { noremap = true, silent = true })
@@ -130,7 +131,7 @@ map('n', '<C-w>', function()
   local buftype = vim.api.nvim_buf_get_option(buf, 'buftype')
   if win_count > 1 and buftype == '' then
     -- Multiple windows and current is a normal buffer: close current window
-    local ok, err = pcall(vim.cmd, 'close')
+    local ok= pcall(function()vim.cmd('close') end)
     if not ok then
       -- If close fails, fallback to deleting buffer
       vim.cmd('bd')

@@ -11,10 +11,15 @@ return {
       if vim.fn.isdirectory(undodir) == 0 then
         vim.fn.mkdir(undodir, 'p')
       end
-
+      
+      -- Simple function to toggle undotree (no LSP interference needed)
+      local function safe_undotree_toggle()
+        vim.cmd.UndotreeToggle()
+      end
+      
       -- Set up the keymap
-      vim.keymap.set('n', '<leader>z', vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
-	  vim.keymap.set('v', '<leader>z', vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
+      vim.keymap.set('n', '<leader>z', safe_undotree_toggle, { desc = "Toggle Undotree" })
+      vim.keymap.set('v', '<leader>z', safe_undotree_toggle, { desc = "Toggle Undotree" })
     end,
   }
 }

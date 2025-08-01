@@ -20,7 +20,7 @@ return {
             },
         },
         suggestion = {
-            enabled = false,
+            enabled = true,
             auto_trigger = false,
             hide_during_completion = true,
             debounce = 75,
@@ -45,7 +45,7 @@ return {
             cvs = false,
             ["."] = false,
         },
-        auth_provider_url = nil, -- URL to authentication provider, if not "https://github.com/"
+        -- auth_provider_url = nil, -- URL to authentication provider, if not "https://github.com/"
         logger = {
             file = vim.fn.stdpath("log") .. "/copilot-lua.log",
             file_log_level = vim.log.levels.OFF,
@@ -73,7 +73,7 @@ return {
   end,
   server = {
     type = "nodejs", -- "nodejs" | "binary"
-    custom_server_filepath = nil,
+    -- custom_server_filepath = nil,
   },
   server_opts_overrides = {},
 })

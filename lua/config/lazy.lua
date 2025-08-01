@@ -7,7 +7,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
       { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
+			{ "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
     os.exit(1)
@@ -26,12 +26,12 @@ vim.opt.autoread = true
 
 -- Indentation settings
 vim.opt.expandtab = false     -- Use tabs instead of spaces
--- vim.opt.shiftwidth = 2        -- Size of an indent
--- vim.opt.tabstop = 2           -- Number of spaces tabs count for
--- vim.opt.softtabstop = 2       -- Number of spaces tabs count for in insert mode
+vim.opt.shiftwidth = 2        -- Size of an indent
+vim.opt.tabstop = 2           -- Number of spaces tabs count for
+vim.opt.softtabstop = 2       -- Number of spaces tabs count for in insert mode
 vim.opt.smartindent = true    -- Smart autoindenting
 vim.opt.list = true           -- Show some invisible characters
-vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
+-- vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
 
 -- -- Status line and command line configuration
 -- vim.opt.laststatus = 3         -- Global statusline (single statusline for all windows)

@@ -40,7 +40,12 @@ return {
             end
           end)
         end, desc = "Add and commit with custom message" },
-      { "<leader>gp", ":Git push<CR>", desc = "Git push" },
+      { "<leader>gp", function()
+          local notify = require('config.notify')
+          -- Push to remote
+          vim.cmd("silent Git push")
+          notify.git.success("Pushed to remote")
+        end, desc = "Git push" },
 -- test man
     },
     dependencies = {

@@ -93,6 +93,7 @@ map('i', '<C-.>', '<C-t>', { noremap = true, silent = true })
 map('v', '<C-,>', '<gv', { noremap = true, silent = true })
 map('v', '<C-.>', '>gv', { noremap = true, silent = true })
 
+-- Comment-out keybindings
 xmap('n', '<A-/>', '<Cmd>normal gcc<CR>', { silent = true })
 xmap('v', '<A-/>', '<Cmd>normal gcgv<CR>', { silent = true })
 xmap('i', '<A-/>', '<Esc><Cmd>normal gcc<CR>i', { silent = true })

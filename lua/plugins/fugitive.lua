@@ -39,13 +39,11 @@ return {
               notify.git.error("Commit cancelled")
             end
           end)
--- test
-
         end, desc = "Add and commit with custom message" },
       { "<leader>gp", function()
           local notify = require('config.notify')
-          -- Push to remote
-          vim.cmd("silent Git push")
+          -- Push to remote (non-blocking)
+          vim.fn.system("git push")
           notify.git.success("Pushed to remote")
         end, desc = "Git push" },
 -- test man

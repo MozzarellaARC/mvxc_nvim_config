@@ -74,6 +74,8 @@ map('n', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
 map('v', '<space><space>', '<Cmd>Yazi<CR>', opts)  -- Open yazi at current file
 map('n', '<space>cw', '<Cmd>Yazi cwd<CR>', opts)  -- Open yazi in working directory
 
+
+-- Directory tree keybindings
 map('n', '<F1>', '<Cmd>Neotree toggle<CR>', opts)  -- Open yazi in current file
 map('v', '<F1>', '<Cmd>Neotree toggle<CR>', opts)  -- Open yazi in current file
 
@@ -83,8 +85,11 @@ map('v', '<F2>', function() _G.undotree_toggle() end, { desc = "Toggle Undotree"
 map('n', '<F3>', '<cmd>Trouble diagnostics toggle<cr>', opts)
 map('v', '<F3>', '<cmd>Trouble diagnostics toggle<cr>', opts)
 
-
-
+-- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
+-- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
+-- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
+-- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
+-- IONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUU
 -- FUNCTIONS, FUNCTIOS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS, FUNCTIONS
 
 -- Override the entire C-w prefix with conditional behavior

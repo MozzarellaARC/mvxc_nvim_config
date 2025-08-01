@@ -23,7 +23,7 @@ vim.opt.tabstop = 4 -- How many columns a tab counts for
 vim.opt.softtabstop = 4 -- How many spaces a tab feels like in insert mode
 vim.opt.shiftwidth = 4 -- How many spaces to use for each step of (auto)indent
 vim.opt.expandtab = true -- Use spaces instead of tabs
-
+vim.opt.cindent = true -- Indentation style for C-like languages
 -- textwidth=0
 -- formatoptions=jcroql
 -- indentexpr=GetLuaIndent()

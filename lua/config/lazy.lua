@@ -18,20 +18,12 @@ vim.opt.rtp:prepend(lazypath)
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
-vim.opt.number = true -- Show absolute line numbers
--- vim.opt.relativenumber = false -- Show relative line numbers (optional)
+
+-- Show absolute line numbers
+vim.opt.number = true
 
 vim.o.swapfile = false
 vim.opt.autoread = true
-
--- Indentation settings
-vim.opt.expandtab = false  -- Use tabs instead of spaces
-vim.opt.shiftwidth = 2     -- Size of an indent
-vim.opt.tabstop = 2        -- Number of spaces tabs count for
-vim.opt.softtabstop = 2    -- Number of spaces tabs count for in insert mode
-vim.opt.smartindent = true -- Smart autoindenting
--- vim.opt.list = true        -- Show some invisible characters
--- vim.opt.listchars = { tab = '  ', trail = '·', extends = '>', precedes = '<' }
 
 -- -- Status line and command line configuration
 -- vim.opt.laststatus = 3         -- Global statusline (single statusline for all windows)

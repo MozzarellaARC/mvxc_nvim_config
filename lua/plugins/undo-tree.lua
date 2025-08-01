@@ -14,6 +14,7 @@ return {
 
       -- Set up the keymap
       vim.keymap.set('n', '<leader>z', vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
+	  vim.keymap.set('v', '<leader>z', vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
     end,
   }
 }

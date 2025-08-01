@@ -26,9 +26,9 @@ return {
         
         -- Background color (hex) - you can change this to match your theme
         background_colour = "#1f1f28",
-        
+
         -- Remove border completely
-        border = "",
+        border = "shadow",
         
         -- Position: true = top-down, false = bottom-up
         top_down = false,
@@ -37,13 +37,13 @@ return {
         level = vim.log.levels.INFO,
         
         -- Icons for different levels (optional, will use defaults if not set)
-        icons = {
-          ERROR = "✗",
-          WARN = "⚠",
-          INFO = "ℹ",
-          DEBUG = "🐛",
-          TRACE = "✎",
-        },
+        -- icons = {
+        --   ERROR = "✗",
+        --   WARN = "⚠",
+        --   INFO = "ℹ",
+        --   DEBUG = "🐛",
+        --   TRACE = "✎",
+        -- },
         
         -- Animation fps
         fps = 30,

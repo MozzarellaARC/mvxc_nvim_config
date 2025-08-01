@@ -133,7 +133,7 @@ map('n', '<C-w>', function()
   -- (excluding special windows like quickfix, help, etc.)
   local current_win = vim.api.nvim_get_current_win()
   local buf = vim.api.nvim_win_get_buf(current_win)
-  local buftype = vim.api.nvim_buf_get_option(buf, 'buftype')
+  local buftype = vim.bo[buf].buftype
   if win_count > 1 and buftype == '' then
     -- Multiple windows and current is a normal buffer: close current window
     local ok= pcall(function()vim.cmd('close') end)

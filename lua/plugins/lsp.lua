@@ -1,7 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    dependencies = { 
+    dependencies = {
       'saghen/blink.cmp',
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
@@ -13,12 +13,11 @@ return {
       -- Common on_attach function for all LSP servers
       local on_attach = function(client, bufnr)
         -- Enable completion triggered by <c-x><c-o>
-        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
       end
 
       -- Setup language servers
       local lspconfig = require('lspconfig')
-      
       -- Lua Language Server
       lspconfig.lua_ls.setup {
         capabilities = capabilities,
@@ -55,7 +54,6 @@ return {
       --   capabilities = capabilities,
       --   on_attach = on_attach,
       -- }
-      
       -- Example for TypeScript/JavaScript:
       -- lspconfig.ts_ls.setup {
       --   capabilities = capabilities,

@@ -3,7 +3,23 @@ return {
   event = "InsertEnter",
   dependencies = {
     -- Snippet engine
-    "L3MON4D3/LuaSnip",
+    {
+	"L3MON4D3/LuaSnip",
+	-- follow latest release.
+	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- install jsregexp (optional!).
+	build = "make install_jsregexp",
+	config = function()
+		-- Load friendly-snippets
+		require("luasnip.loaders.from_vscode").lazy_load()
+		
+		-- Try to load jsregexp, but don't error if it fails
+		local ok, _ = pcall(require, "luasnip-jsregexp")
+		if not ok then
+			vim.notify("jsregexp not available - some snippet features may be limited", vim.log.levels.WARN)
+		end
+	end,
+	},
     "saadparwaiz1/cmp_luasnip",
 
     -- LSP source
@@ -33,8 +49,6 @@ return {
     vim.api.nvim_set_hl(0, "CmpSel",         { bg = "#45475a", fg = "#f5c2e7" })
     vim.api.nvim_set_hl(0, "CmpDoc",         { bg = "#1e1e2e", fg = "#cdd6f4" })
     vim.api.nvim_set_hl(0, "CmpGhostText",   { fg = "#6c7086", italic = true })
-
-    require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
       snippet = {

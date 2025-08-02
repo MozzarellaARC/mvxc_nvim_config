@@ -14,8 +14,7 @@ return {
 			desc = "Format buffer",
 		},
 	},
-	-- test
-	-- test 2
+
 	-- Everything in opts will be passed to setup()
 	opts = {
 		-- Define your formatters

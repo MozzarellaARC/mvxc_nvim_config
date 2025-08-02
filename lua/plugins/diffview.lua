@@ -34,7 +34,7 @@ return {
 							vim.cmd("normal! \\<C-d>")
 							vim.cmd("wincmd w")
 						end,
-						{ desc = "Scroll down in both diff buffers" }
+						{ desc = "Scroll down in both diff buffers" },
 					},
 					{
 						"n",
@@ -46,7 +46,7 @@ return {
 							vim.cmd("normal! \\<C-u>")
 							vim.cmd("wincmd w")
 						end,
-						{ desc = "Scroll up in both diff buffers" }
+						{ desc = "Scroll up in both diff buffers" },
 					},
 					{
 						"n",
@@ -58,7 +58,7 @@ return {
 							vim.cmd("normal! \\<C-f>")
 							vim.cmd("wincmd w")
 						end,
-						{ desc = "Page down in both diff buffers" }
+						{ desc = "Page down in both diff buffers" },
 					},
 					{
 						"n",
@@ -70,7 +70,7 @@ return {
 							vim.cmd("normal! \\<C-b>")
 							vim.cmd("wincmd w")
 						end,
-						{ desc = "Page up in both diff buffers" }
+						{ desc = "Page up in both diff buffers" },
 					},
 					{
 						"n",
@@ -82,7 +82,7 @@ return {
 							vim.cmd("normal! j")
 							vim.cmd("wincmd w")
 						end,
-						{ desc = "Move down in both diff buffers" }
+						{ desc = "Move down in both diff buffers" },
 					},
 					{
 						"n",
@@ -94,7 +94,7 @@ return {
 							vim.cmd("normal! k")
 							vim.cmd("wincmd w")
 						end,
-						{ desc = "Move up in both diff buffers" }
+						{ desc = "Move up in both diff buffers" },
 					},
 					{
 						"n",
@@ -106,7 +106,7 @@ return {
 							vim.cmd("normal! gg")
 							vim.cmd("wincmd w")
 						end,
-						{ desc = "Go to top in both diff buffers" }
+						{ desc = "Go to top in both diff buffers" },
 					},
 					{
 						"n",
@@ -118,7 +118,7 @@ return {
 							vim.cmd("normal! G")
 							vim.cmd("wincmd w")
 						end,
-						{ desc = "Go to bottom in both diff buffers" }
+						{ desc = "Go to bottom in both diff buffers" },
 					},
 				},
 			},
